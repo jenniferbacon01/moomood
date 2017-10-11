@@ -135,34 +135,39 @@
         <!--Item-->
         <scene sceneID="Zpu-M1-Ult">
             <objects>
-                <viewController id="kf2-kq-9Bf" sceneMemberID="viewController">
+                <viewController id="kf2-kq-9Bf" customClass="ChartViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wuy-uF-hFg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADb-Iw-rBk" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="43" width="414" height="644"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efn-Oo-vup">
-                                <rect key="frame" x="0.0" y="6" width="414" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-qD-iHd">
+                                <rect key="frame" x="20" y="20" width="374" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="RiW-JL-QsL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-Sy-cMS" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="52" width="414" height="635"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ADb-Iw-rBk" firstAttribute="bottom" secondItem="PD4-sd-63H" secondAttribute="bottom" id="DqT-Ro-VES"/>
-                            <constraint firstItem="ADb-Iw-rBk" firstAttribute="leading" secondItem="PD4-sd-63H" secondAttribute="leading" id="TPG-Ms-Vt0"/>
-                            <constraint firstItem="efn-Oo-vup" firstAttribute="trailing" secondItem="PD4-sd-63H" secondAttribute="trailing" id="X1x-yc-zG9"/>
-                            <constraint firstItem="efn-Oo-vup" firstAttribute="top" secondItem="Wuy-uF-hFg" secondAttribute="top" constant="6" id="cF7-Fq-kKF"/>
-                            <constraint firstItem="ADb-Iw-rBk" firstAttribute="trailing" secondItem="PD4-sd-63H" secondAttribute="trailing" id="vhq-XP-qKL"/>
-                            <constraint firstItem="efn-Oo-vup" firstAttribute="leading" secondItem="PD4-sd-63H" secondAttribute="leading" id="zGa-RX-M6r"/>
+                            <constraint firstItem="PD4-sd-63H" firstAttribute="trailing" secondItem="p6f-qD-iHd" secondAttribute="trailing" constant="20" id="GBQ-Ia-qub"/>
+                            <constraint firstItem="p6f-qD-iHd" firstAttribute="centerX" secondItem="Wuy-uF-hFg" secondAttribute="centerX" id="bRf-9Y-yDH"/>
+                            <constraint firstItem="p6f-qD-iHd" firstAttribute="leading" secondItem="PD4-sd-63H" secondAttribute="leading" constant="20" id="hu4-PS-rgc"/>
+                            <constraint firstItem="p6f-qD-iHd" firstAttribute="top" secondItem="PD4-sd-63H" secondAttribute="top" id="xQo-Xz-Iwr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PD4-sd-63H"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Idu-qo-mwa"/>
+                    <connections>
+                        <outlet property="chtChart" destination="bLF-Sy-cMS" id="cy3-wm-sCb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejh-zR-krM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
