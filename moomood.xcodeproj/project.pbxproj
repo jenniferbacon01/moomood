@@ -15,6 +15,7 @@
 		E6C6C9D41F8E211400BD5531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */; };
 		E6C6C9DF1F8E211400BD5531 /* moomoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9DE1F8E211400BD5531 /* moomoodTests.swift */; };
 		E6C6C9EA1F8E211500BD5531 /* moomoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9E91F8E211500BD5531 /* moomoodUITests.swift */; };
+		E6C6C9F81F8E2FEB00BD5531 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E6C6C9E51F8E211500BD5531 /* moomoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moomoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9E91F8E211500BD5531 /* moomoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moomoodUITests.swift; sourceTree = "<group>"; };
 		E6C6C9EB1F8E211500BD5531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */,
 				E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */,
 				E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */,
+				E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */,
 				E6C6C9CD1F8E211400BD5531 /* Main.storyboard */,
 				E6C6C9D01F8E211400BD5531 /* Assets.xcassets */,
 				E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C6C9F81F8E2FEB00BD5531 /* Mood.swift in Sources */,
 				E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */,
 				E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */,
 				E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */,

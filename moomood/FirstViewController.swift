@@ -10,15 +10,20 @@ import UIKit
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var moods: [String] = []
+    var moods: [Mood] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moods.count
     }
     
+//    func tableView(_ tableView: UITableView, numberOfColumnsInSection section: Int) -> Int {
+//        return 2
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = String(describing: moods[indexPath.row])
+        
+        cell.textLabel?.text = String(describing: moods[indexPath.row].date + String(describing:moods[indexPath.row].rating))
         return cell
     }
     
@@ -30,7 +35,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             table.reloadData()
             
-            UserDefaults.standard.set(moods, forKey: "moods")
+            NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
             
         }
     }
@@ -43,12 +48,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func viewDidAppear(_ animated: Bool) {
-        let moodsObject = UserDefaults.standard.object(forKey: "moods")
+        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         
-        if let tempmoods = moodsObject as? [String] {
+        if let tempmoods = moodsObject as? [Mood] {
             moods = tempmoods
         }
-        print(moods)
+        
         table.reloadData()
     }
     
@@ -68,6 +73,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func test(_ sender: Any) {
         print(moods)
     }
+    
+
     
 }
 
