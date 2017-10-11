@@ -31,16 +31,12 @@ class ChartViewController: UIViewController {
         }
         
         // set up matched dates array
-        let formatter = DateFormatter()
-        formatter.dateFormat="dd MMM"
-        
-        
         for i in (0..<moods.count){
             let date = moods[i].date
-//            let cleanDate = formatter.string(from: date)
-            print("LOOK HERE")
-//            print(cleanDate)
+            print("LOOK")
+            print(date)
             matchedDates.append(date)
+            
         }
         
         //set up line array
