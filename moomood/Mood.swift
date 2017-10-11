@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import os.log
 
 class Mood: NSObject, NSCoding {
     var date: String
@@ -32,6 +31,7 @@ class Mood: NSObject, NSCoding {
         let date = aDecoder.decodeObject(forKey: MoodKey.date) as? String
         let rating = aDecoder.decodeInteger(forKey: MoodKey.rating)
         self.init(date: date!, rating: rating)
+
     }
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!

@@ -46,7 +46,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     func buttonMethod(number: Int) {
         messageDisplay(number: number)
-        let mood = Mood(date:"today",rating: number)
+        let mood = Mood(date:String(describing: Date()),rating: number)
         let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         
         var moods: [Mood]

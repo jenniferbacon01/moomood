@@ -16,9 +16,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return moods.count
     }
     
+//    func tableView(_ tableView: UITableView, numberOfColumnsInSection section: Int) -> Int {
+//        return 2
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = String(describing: String(moods[indexPath.row].rating))
+        
+        cell.textLabel?.text = String(describing: moods[indexPath.row].date + String(describing:moods[indexPath.row].rating))
         return cell
     }
     
