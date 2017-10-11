@@ -46,19 +46,20 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     func buttonMethod(number: Int) {
         messageDisplay(number: number)
-        let moodsObject = UserDefaults.standard.object(forKey: "moods")
+        let mood = Mood(date:"today",rating: number)
+        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         
-        var moods: [String]
+        var moods: [Mood]
         
-        if let tempmoods = moodsObject as? [String] {
+        if let tempmoods = moodsObject as? [Mood] {
             moods = tempmoods
-            moods.append(String(number))
+            moods.append(mood)
         } else {
-            moods = [String(number)]
+            moods = [mood]
             
         }
         
-        UserDefaults.standard.set(moods, forKey: "moods")
+        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
     }
     
     func messageDisplay(number: Int) {
@@ -75,6 +76,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    private func saveMoods() {
+//        
+//        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
+//        
+//    }
+    
+//    private func loadMoods() -> [Mood]? {
+//        return NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path) as? [Mood]
+//    }
     
     
 }

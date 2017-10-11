@@ -37,11 +37,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBV-wR-Jq0">
-                                <rect key="frame" x="232" y="548" width="46" height="30"/>
+                                <rect key="frame" x="140" y="545" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="test:" destination="9pv-A4-QxB" eventType="touchUpInside" id="5CF-q4-RF3"/>
+                                    <action selector="test:" destination="9pv-A4-QxB" eventType="touchUpInside" id="lED-YZ-GiB"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -21,9 +21,10 @@ class moomoodTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMoodCanBeInstantiatedWithDateAndRating() {
+        var mood = Mood(date:"11/10/17",rating:5)
+        XCTAssertEqual(mood.date, "11/10/17")
+        XCTAssertEqual(mood.rating, 5)
     }
     
     func testPerformanceExample() {
