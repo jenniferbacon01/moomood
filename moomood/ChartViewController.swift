@@ -50,6 +50,12 @@ class ChartViewController: UIViewController {
         chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:matchedDates)
         chtChart.xAxis.granularity = 1
         chtChart.setVisibleXRangeMaximum(6)
+        
+        // show the latest entries
+        let when = DispatchTime.now() + 0.1
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.chtChart.moveViewToX(Double(moods.count - 1))
+        }
     }
     
     func formatGraph (moodLine: LineChartDataSet){
@@ -110,25 +116,17 @@ class ChartViewController: UIViewController {
         chtChart.leftAxis.axisMaximum = 5.3
         chtChart.leftAxis.granularityEnabled = true
         chtChart.leftAxis.granularity = 1.0
-
-        
         
     }
     
- 
     override func viewDidAppear(_ animated: Bool) {
         setUpChart()
-        
        
     }
     
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
