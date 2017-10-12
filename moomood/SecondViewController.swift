@@ -11,8 +11,7 @@ import UIKit
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
-    @IBOutlet weak var message: UILabel!
-    
+    @IBOutlet weak var chosenMoodMessage: UILabel!
     @IBOutlet weak var whyMessage: UILabel!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,18 +49,18 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         buttonMethod(number:5)
     }
     func buttonMethod(number: Int) {
-        messageDisplay(number: number)
+        displayChosenMoodMessage(number: number)
         whyMessage.isHidden = false
         hideNumberButtons()
         showCauseButtons()
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat="dd MMM"
-        let result = formatter.string(from: date)
+        let unformattedDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat="dd MMM"
+        let formattedDate = dateFormatter.string(from: unformattedDate)
 
         
-        let mood = Mood(date:result,rating: number)
+        let mood = Mood(date:formattedDate,rating: number)
         let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         
         var moods: [Mood]
@@ -77,13 +76,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
     }
     
-    func messageDisplay(number: Int) {
+    func displayChosenMoodMessage(number: Int) {
         let messageString = "you chose "
-        message.text = (messageString + String(number))
+        chosenMoodMessage.text = (messageString + String(number))
     }
     
-    
-    
+    @IBAction func addWorkCauseToMood(_ sender: Any) {
+        
+    }
     
     func hideNumberButtons(){
         button1.isHidden = true
@@ -136,7 +136,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        message.text = nil
+        chosenMoodMessage.text = nil
         whyMessage.isHidden = true
         hideCauseButtons()
         showNumberButtons()
