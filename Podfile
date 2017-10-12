@@ -7,6 +7,9 @@ target 'moomood' do
 
   # Pods for moomood
   pod 'Charts'
+  pod 'ApiAI'
+  pod 'JSQMessagesViewController'
+  pod 'RealmSwift'
 
   target 'moomoodTests' do
     inherit! :search_paths
