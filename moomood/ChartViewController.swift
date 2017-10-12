@@ -49,6 +49,7 @@ class ChartViewController: UIViewController {
         
         chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:matchedDates)
         chtChart.xAxis.granularity = 1
+        chtChart.setVisibleXRangeMaximum(6)
     }
     
     func formatGraph (moodLine: LineChartDataSet){
@@ -105,7 +106,7 @@ class ChartViewController: UIViewController {
         chtChart.xAxis.avoidFirstLastClippingEnabled = true
        
         // setting scale and range on y axis
-        chtChart.leftAxis.axisMinimum = 0
+        chtChart.leftAxis.axisMinimum = 0.5
         chtChart.leftAxis.axisMaximum = 5.3
         chtChart.leftAxis.granularityEnabled = true
         chtChart.leftAxis.granularity = 1.0
