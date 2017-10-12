@@ -74,6 +74,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         message.text = (messageString + String(number))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+            message.text = nil
+        }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
