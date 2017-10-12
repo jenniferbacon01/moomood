@@ -62,7 +62,7 @@ class ChartViewController: UIViewController {
         moodLine.colors = [NSUIColor.purple]
         moodLine.mode = .cubicBezier
         
-        moodLine.lineWidth = 5.0
+        moodLine.lineWidth = 0.1
         moodLine.valueColors = [NSUIColor.orange]
         moodLine.drawValuesEnabled = false
         
