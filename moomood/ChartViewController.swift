@@ -13,11 +13,6 @@ class ChartViewController: UIViewController {
     
     var ratings: [Double] = []
     var matchedDates: [String] = []
-    var dateArray: [String] = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-    
- 
-
-    
     
     @IBOutlet weak var chtChart: LineChartView!
     
@@ -33,10 +28,7 @@ class ChartViewController: UIViewController {
         // set up matched dates array
         for i in (0..<moods.count){
             let date = moods[i].date
-            print("LOOK")
-            print(date)
             matchedDates.append(date)
-            
         }
         
         //set up line array
@@ -48,7 +40,7 @@ class ChartViewController: UIViewController {
         }
         
         let moodLine = LineChartDataSet(values: lineChartEntry, label: "Mood")
-        
+        formatGraph(moodLine: moodLine)
         let data = LineChartData()
         
         data.addDataSet(moodLine)
@@ -57,9 +49,69 @@ class ChartViewController: UIViewController {
         
         chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:matchedDates)
         chtChart.xAxis.granularity = 1
+    }
+    
+    func formatGraph (moodLine: LineChartDataSet){
+        moodLine.colors = [NSUIColor.purple]
+        moodLine.mode = .cubicBezier
+        
+        moodLine.lineWidth = 5.0
+        moodLine.valueColors = [NSUIColor.orange]
+        moodLine.drawValuesEnabled = false
+        
+        //remove coordinate circles
+        moodLine.circleRadius = 0
+        
+        //remove xAxis gridlines
+        chtChart.xAxis.drawGridLinesEnabled = false
+        
+        //remove yAxis gridlines
+        chtChart.leftAxis.drawGridLinesEnabled = false
+        chtChart.rightAxis.drawGridLinesEnabled = false
+        
+        
+        //remove xAxis
+        chtChart.xAxis.drawAxisLineEnabled = false
+        
+        //keep left yAxis
+        chtChart.leftAxis.drawAxisLineEnabled = true
+        chtChart.rightAxis.drawAxisLineEnabled = false
+        
+        //remove description
+        chtChart.chartDescription?.text = ""
+        
+        // label at the bottom
+        chtChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        // fill in area below line
+        moodLine.drawFilledEnabled = true
+        moodLine.fillColor = NSUIColor.purple
+        moodLine.fillAlpha = 0.3
+        
+        //remove label and color block
+        
+        // remove right y axis
+        chtChart.rightAxis.enabled = false
+        
+        // pinch zoom enabled
+        chtChart.pinchZoomEnabled = true
+        
+        // font size of x and y axis labels
+        chtChart.xAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 10)!
+        chtChart.leftAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 10)!
+        
+        
+        // make sure x axis labels are visible
+        chtChart.xAxis.avoidFirstLastClippingEnabled = true
+       
+        // setting scale and range on y axis
+        chtChart.leftAxis.axisMinimum = 0
+        chtChart.leftAxis.axisMaximum = 5.3
+        chtChart.leftAxis.granularityEnabled = true
+        chtChart.leftAxis.granularity = 1.0
 
         
-
+        
     }
     
  
