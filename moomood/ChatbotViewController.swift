@@ -36,7 +36,6 @@ class ChatbotViewController: JSQMessagesViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.tabBarController?.tabBar.isHidden = true
-        //     self.navigationController?.isNavigationBarHidden = false
         
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
@@ -44,7 +43,7 @@ class ChatbotViewController: JSQMessagesViewController {
         self.queryAllMessages()
     }
     
-    // sending the message
+    // what to happen when the send button is clicked
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         
         print("Date : \(date)")
@@ -126,15 +125,22 @@ class ChatbotViewController: JSQMessagesViewController {
         }
     }
     
-    // handle sending message to and receiving response from chatbot's api
+    // handle sending request and receiving response to/from chatbot's api
     func handleSendMessageToBot(_ message: String) {
         let request = ApiAI.shared().textRequest()
         request?.query = message
+        
+        // send request and receive response from chatbot api
         request?.setMappedCompletionBlockSuccess({ (request, response) in
+            
             //handle response from chatbot's api
             let response = response as! AIResponse
             
-            if let responseFromAI = response.result.fulfillment.speech as? String {
+            if let responseFromAI = response.result.fulfillment.messages.first?["speech"] as? String {
+                
+                print(response.result.fulfillment.speech)
+                
+                // store response to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
                 self.handleStoreBotMsg(responseFromAI)
             }
             
