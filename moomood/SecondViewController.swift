@@ -8,6 +8,22 @@
 
 import UIKit
 
+extension UIView {
+    
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
+}
+
+
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
@@ -145,6 +161,28 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button1.layer.cornerRadius = 10
+        button1.layer.masksToBounds = true
+        button1.setGradientBackground(colorOne: UIColor.black, colorTwo: UIColor.purple)
+        
+        button2.layer.cornerRadius = 10
+        button2.layer.masksToBounds = true
+        button2.setGradientBackground(colorOne: UIColor.darkGray, colorTwo: UIColor.purple)
+        
+        button3.layer.cornerRadius = 10
+        button3.layer.masksToBounds = true
+        button3.setGradientBackground(colorOne: UIColor.gray, colorTwo: UIColor.purple)
+        
+        button4.layer.cornerRadius = 10
+        button4.layer.masksToBounds = true
+        button4.setGradientBackground(colorOne: UIColor.lightGray, colorTwo: UIColor.purple)
+        
+        button5.layer.cornerRadius = 10
+        button5.layer.masksToBounds = true
+        button5.setGradientBackground(colorOne: UIColor.white, colorTwo: UIColor.purple)
+        
+        
 
         // Do any additional setup after loading the view, typically from a nib.
     }
