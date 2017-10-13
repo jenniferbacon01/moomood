@@ -42,7 +42,17 @@ class ChatbotViewController: JSQMessagesViewController {
         self.senderDisplayName = currentUser.name
     }
     
+    
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        // store message into JSXMessage array
+        
+        let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text!)
+        
+        messages.append(message!)
+        
+        finishSendingMessage()
+            
         print("hello")
     }
     
