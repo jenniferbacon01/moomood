@@ -30,6 +30,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var chosenMoodMessage: UILabel!
     @IBOutlet weak var whyMessage: UILabel!
     var mood: Mood?
+    var number: Int?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -49,36 +50,77 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var button5: UIButton!
     
     @IBAction func button1(_ sender: Any) {
-        buttonMethod(number:1)
+        number = 1
+        buttonMethod(number: number!)
     }
     
     @IBAction func button2(_ sender: Any) {
-        buttonMethod(number:2)
+        number = 2
+        buttonMethod(number: number!)
     }
     
     @IBAction func button3(_ sender: UIButton) {
-        buttonMethod(number:3)
+        number = 3
+        buttonMethod(number: number!)
     }
     @IBAction func button4(_ sender: UIButton) {
-        buttonMethod(number:4)
+        number = 4
+        buttonMethod(number: number!)
     }
     @IBAction func button5(_ sender: UIButton) {
-        buttonMethod(number:5)
+        number = 5
+        buttonMethod(number: number!)
     }
     func buttonMethod(number: Int) {
         displayChosenMoodMessage(number: number)
         whyMessage.isHidden = false
         hideNumberButtons()
         showCauseButtons()
-        
+    }
+    
+    func displayChosenMoodMessage(number: Int) {
+        let messageString = "you chose "
+        chosenMoodMessage.text = (messageString + String(number))
+    }
+    
+    @IBAction func workButton(_ sender: Any) {
+        causeButtonMethod(cause: "Work")
+    }
+    
+    @IBAction func familyButton(_ sender: Any) {
+        causeButtonMethod(cause: "Family")
+    }
+    @IBAction func partnerButton(_ sender: Any) {
+        causeButtonMethod(cause: "Partner")
+    }
+    
+    @IBAction func healthButton(_ sender: Any) {
+        causeButtonMethod(cause: "Health")
+    }
+    
+    @IBAction func homeButton(_ sender: Any) {
+        causeButtonMethod(cause: "Home")
+    }
+    
+    @IBAction func financesButton(_ sender: Any) {
+        causeButtonMethod(cause: "Finances")
+    }
+    
+    @IBAction func weatherButton(_ sender: Any) {
+        causeButtonMethod(cause: "Weather")
+    }
+    @IBAction func otherButton(_ sender: Any) {
+        causeButtonMethod(cause: "Other")
+    }
+    @IBAction func ratherNotSayButton(_ sender: Any) {
+        causeButtonMethod(cause: "I'd rather not say")
+    }
+    func causeButtonMethod(cause: String) {
         let unformattedDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat="dd MMM"
         let formattedDate = dateFormatter.string(from: unformattedDate)
-
-        
-        mood = Mood(date:formattedDate,rating: number, cause: "work")
-        
+        mood = Mood(date:formattedDate,rating: number!, cause: cause)
         let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         var moods: [Mood]
         if let tempmoods = moodsObject as? [Mood] {
@@ -89,16 +131,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         print(mood!.cause)
         NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
-        
-    }
-    
-    func displayChosenMoodMessage(number: Int) {
-        let messageString = "you chose "
-        chosenMoodMessage.text = (messageString + String(number))
-    }
-    
-    @IBAction func addWorkCauseToMood(_ sender: Any) {
-        
     }
     
     func hideNumberButtons(){

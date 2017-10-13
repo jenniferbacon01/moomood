@@ -239,7 +239,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="addWorkCauseToMood:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="7o8-qa-etj"/>
+                                    <action selector="workButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="1y8-9T-cDl"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2CY-az-7IT">
@@ -255,6 +255,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="familyButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Feh-lK-Djc"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGI-kp-ZOs">
                                 <rect key="frame" x="193" y="371" width="51" height="30"/>
@@ -269,6 +272,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="partnerButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="JRF-h9-wMX"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-IO-cMh">
                                 <rect key="frame" x="261" y="371" width="45" height="30"/>
@@ -283,6 +289,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="healthButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="leA-gR-S2U"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-Vb-1oE">
                                 <rect key="frame" x="50" y="427" width="50" height="34"/>
@@ -297,6 +306,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="homeButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ye9-us-twz"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-hJ-udp">
                                 <rect key="frame" x="112" y="429" width="61" height="30"/>
@@ -311,6 +323,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="financesButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3zf-1A-hwQ"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-RZ-Zmk">
                                 <rect key="frame" x="189" y="429" width="58" height="30"/>
@@ -325,6 +340,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="weatherButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="UpH-Nm-gf7"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydr-Tn-A0O">
                                 <rect key="frame" x="263" y="429" width="40" height="30"/>
@@ -339,6 +357,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="otherButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Hfc-c5-1DR"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-vd-GcV">
                                 <rect key="frame" x="117" y="479" width="116" height="30"/>
@@ -353,6 +374,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="ratherNotSayButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="GKD-Wg-kRc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Yx-Ww3">
                                 <rect key="frame" x="145" y="180" width="60" height="60"/>
@@ -391,10 +415,10 @@
                         <outlet property="button4" destination="KMr-hC-1Ey" id="ycJ-f1-sjf"/>
                         <outlet property="button5" destination="DPd-Yx-Ww3" id="SbN-mF-xsa"/>
                         <outlet property="chosenMoodMessage" destination="3KO-TK-Y8u" id="Hho-6P-Kij"/>
-                        <outlet property="familyButton" destination="2CY-az-7IT" id="kfa-UE-PIH"/>
+                        <outlet property="familyButton" destination="2CY-az-7IT" id="pUT-C5-z62"/>
                         <outlet property="financesButton" destination="hgL-hJ-udp" id="XDN-Hs-lMG"/>
                         <outlet property="healthButton" destination="Tz3-IO-cMh" id="Pzi-XO-qxn"/>
-                        <outlet property="homeButton" destination="b1O-Vb-1oE" id="Ics-Ww-xpI"/>
+                        <outlet property="homeButton" destination="b1O-Vb-1oE" id="aU8-UN-x9o"/>
                         <outlet property="otherButton" destination="ydr-Tn-A0O" id="WEz-De-ZcC"/>
                         <outlet property="partnerButton" destination="MGI-kp-ZOs" id="UPv-NK-q5O"/>
                         <outlet property="preferNotToSayButton" destination="GvD-vd-GcV" id="E4Z-ve-sjP"/>
