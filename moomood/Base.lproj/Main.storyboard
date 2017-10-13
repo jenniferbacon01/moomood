@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gZu-Bu-qpa" id="2b1-ip-X10">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="-994" y="179"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="-316" y="179"/>
         </scene>
         <!--Item-->
         <scene sceneID="Zpu-M1-Ult">
@@ -171,7 +171,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejh-zR-krM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1.4492753623188408" y="753.26086956521749"/>
+            <point key="canvasLocation" x="343" y="179"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="dVR-4N-Jhx">
+            <objects>
+                <viewController id="8c0-q6-hmv" customClass="ChatbotViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v0Y-NU-zL1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCd-Jh-JWJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="mRl-wA-8Bb"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eCd-Jh-JWJ" firstAttribute="leading" secondItem="GuX-UV-T5A" secondAttribute="leading" id="2Zt-Nn-fMS"/>
+                            <constraint firstItem="eCd-Jh-JWJ" firstAttribute="top" secondItem="v0Y-NU-zL1" secondAttribute="top" id="TtX-Ma-4bd"/>
+                            <constraint firstItem="eCd-Jh-JWJ" firstAttribute="trailing" secondItem="GuX-UV-T5A" secondAttribute="trailing" id="xAt-Ga-lt4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GuX-UV-T5A"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" id="wWg-8a-WKH" userLabel="Chat"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGg-c5-U41" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="181"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -186,11 +215,12 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="kf2-kq-9Bf" kind="relationship" relationship="viewControllers" id="9J6-bt-Q0g"/>
+                        <segue destination="8c0-q6-hmv" kind="relationship" relationship="viewControllers" id="EPx-6D-ttd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="10" y="-584"/>
         </scene>
     </scenes>
     <resources>
