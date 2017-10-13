@@ -232,6 +232,61 @@
                                     <action selector="button1:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="G06-HD-jbc"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why do you feel like this?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzu-By-OZJ">
+                                <rect key="frame" x="78" y="323" width="194" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoW-WV-Hn9">
+                                <rect key="frame" x="56" y="371" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Work"/>
+                                <connections>
+                                    <action selector="addWorkCauseToMood:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="7o8-qa-etj"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CY-az-7IT">
+                                <rect key="frame" x="120" y="371" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Family"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGI-kp-ZOs">
+                                <rect key="frame" x="193" y="371" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Partner"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-IO-cMh">
+                                <rect key="frame" x="261" y="371" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Health"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-Vb-1oE">
+                                <rect key="frame" x="54" y="429" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-hJ-udp">
+                                <rect key="frame" x="112" y="429" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Finances"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-RZ-Zmk">
+                                <rect key="frame" x="189" y="429" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Weather"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydr-Tn-A0O">
+                                <rect key="frame" x="263" y="429" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Other"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-vd-GcV">
+                                <rect key="frame" x="117" y="479" width="116" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I'd rather not say"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -239,7 +294,22 @@
                         <color key="badgeColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="message" destination="3KO-TK-Y8u" id="5Dy-aP-pTN"/>
+                        <outlet property="button1" destination="FmE-Nv-Lvt" id="Vzu-SQ-obR"/>
+                        <outlet property="button2" destination="A1P-VN-9G2" id="UiS-Jk-p7d"/>
+                        <outlet property="button3" destination="Ggz-xW-1sQ" id="HaF-Uo-QRy"/>
+                        <outlet property="button4" destination="KMr-hC-1Ey" id="ycJ-f1-sjf"/>
+                        <outlet property="button5" destination="DPd-Yx-Ww3" id="SbN-mF-xsa"/>
+                        <outlet property="chosenMoodMessage" destination="3KO-TK-Y8u" id="Hho-6P-Kij"/>
+                        <outlet property="familyButton" destination="2CY-az-7IT" id="kfa-UE-PIH"/>
+                        <outlet property="financesButton" destination="hgL-hJ-udp" id="XDN-Hs-lMG"/>
+                        <outlet property="healthButton" destination="Tz3-IO-cMh" id="Pzi-XO-qxn"/>
+                        <outlet property="homeButton" destination="b1O-Vb-1oE" id="Ics-Ww-xpI"/>
+                        <outlet property="otherButton" destination="ydr-Tn-A0O" id="WEz-De-ZcC"/>
+                        <outlet property="partnerButton" destination="MGI-kp-ZOs" id="UPv-NK-q5O"/>
+                        <outlet property="preferNotToSayButton" destination="GvD-vd-GcV" id="E4Z-ve-sjP"/>
+                        <outlet property="weatherButton" destination="OOd-RZ-Zmk" id="Y8S-Oj-IaD"/>
+                        <outlet property="whyMessage" destination="tzu-By-OZJ" id="Joc-aC-4nw"/>
+                        <outlet property="workButton" destination="qoW-WV-Hn9" id="yFO-5r-dKj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
