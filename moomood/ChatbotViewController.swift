@@ -18,11 +18,10 @@ struct User {
 
 class ChatbotViewController: JSQMessagesViewController {
     
+    // setting variables
     var messages = [JSQMessage]()
-    
-    var user1 = User(id: "1", name: "Eli")
+    var user1 = User(id: "1", name: "Elizabeth")
     var user2 = User(id: "2", name: "momoobot")
-    
     var currentUser: User {
         return user1
     }
@@ -34,30 +33,35 @@ class ChatbotViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
         self.tabBarController?.tabBar.isHidden = true
         //     self.navigationController?.isNavigationBarHidden = false
         
-        // Do any additional setup after loading the view, typically from a nib.
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
+        
+        self.queryAllMessages()
     }
     
-    
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    // sending the message
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         
+        print("Date : \(date)")
+        
+        // store message into Realm
+        self.addMessage(senderDisplayName, senderID: senderId, senderMessage: text)
+
         // store message into JSXMessage array
-        
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text!)
         
         messages.append(message!)
         
         finishSendingMessage()
-            
-        print("hello")
     }
     
     // formatting
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
         let messageUserName = message.senderDisplayName
         
@@ -80,7 +84,6 @@ class ChatbotViewController: JSQMessagesViewController {
         } else {
             return bubbleFactory?.incomingMessagesBubbleImage(with: .blue)
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -91,7 +94,38 @@ class ChatbotViewController: JSQMessagesViewController {
         return messages[indexPath.row]
     }
     
+    // define a new function to save data to Realm
+    func addMessage(_ senderName: String, senderID: String, senderMessage: String) {
+        // class Message
+        let message = Message()
+        message.senderID = senderID
+        message.senderName = senderName
+        message.senderMessage = senderMessage
+        
+        // write to Realm
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(message)
+        }
+    }
     
+    func queryAllMessages(){
+        let realm = try! Realm()
+        let messages = realm.objects(Message.self)
+        
+        // for every message saved in realm
+        for message in messages {
+            
+            // convert each message to a JSQMessage
+            let msg = JSQMessage(senderId: message.senderID, displayName: message.senderName, text: message.senderMessage)
+            
+            self.messages.append(msg!)
+            
+        }
+        
+    }
+    
+
 }
 
 
