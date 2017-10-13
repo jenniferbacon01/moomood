@@ -57,10 +57,12 @@ class ChatbotViewController: JSQMessagesViewController {
         
         messages.append(message!)
         
+        handleSendMessageToBot(text)
+        
         finishSendingMessage()
     }
     
-    // formatting
+    // style formatting
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
         let messageUserName = message.senderDisplayName
@@ -109,6 +111,7 @@ class ChatbotViewController: JSQMessagesViewController {
         }
     }
     
+    // define a new function to extract data from Realm
     func queryAllMessages(){
         let realm = try! Realm()
         let messages = realm.objects(Message.self)
@@ -118,11 +121,45 @@ class ChatbotViewController: JSQMessagesViewController {
             
             // convert each message to a JSQMessage
             let msg = JSQMessage(senderId: message.senderID, displayName: message.senderName, text: message.senderMessage)
-            
+            // append it to the JSQMessage array
             self.messages.append(msg!)
-            
         }
+    }
+    
+    // handle sending message to and receiving response from chatbot's api
+    func handleSendMessageToBot(_ message: String) {
+        let request = ApiAI.shared().textRequest()
+        request?.query = message
+        request?.setMappedCompletionBlockSuccess({ (request, response) in
+            //handle response from chatbot's api
+            let response = response as! AIResponse
+            
+            if let responseFromAI = response.result.fulfillment.speech as? String {
+                self.handleStoreBotMsg(responseFromAI)
+            }
+            
+        }, failure: { (request, error) in
+            print(error!)
+        })
         
+        // send message to chatbot api
+        ApiAI.shared().enqueue(request)
+    }
+    
+    // handle receiving message from chatbot's api
+    func handleStoreBotMsg(_ botMsg: String){
+        
+        // store message to local Realm
+        addMessage(user2.name, senderID: user2.id, senderMessage: botMsg)
+        
+        // convert to JSQMessage
+        let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
+        
+        //store into JSQMessage array
+        messages.append(botMessage!)
+        
+        //update UI
+        finishSendingMessage()
     }
     
 
