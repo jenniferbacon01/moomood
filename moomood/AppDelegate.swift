@@ -13,7 +13,7 @@ import ApiAI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     let apiai = ApiAI.shared()!
 
 
@@ -26,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         apiai.configuration = configuration
         
+
         // Override point for customization after application launch.
+
+
         return true
     }
 

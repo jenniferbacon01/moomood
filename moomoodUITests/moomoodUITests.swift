@@ -31,7 +31,7 @@ class moomoodUITests: XCTestCase {
     }
     
     func testButtonsArePresent() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         XCTAssert(app.buttons["1"].exists)
         XCTAssert(app.buttons["2"].exists)
         XCTAssert(app.buttons["3"].exists)
@@ -40,33 +40,53 @@ class moomoodUITests: XCTestCase {
     }
     
     func testButton1DisplaysLabel() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         app.buttons["1"].tap()
         XCTAssert(app.staticTexts["you chose 1"].exists)
     }
     
     func testButton2DisplaysLabel() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         app.buttons["2"].tap()
         XCTAssert(app.staticTexts["you chose 2"].exists)
     }
     
     func testButton3DisplaysLabel() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         app.buttons["3"].tap()
         XCTAssert(app.staticTexts["you chose 3"].exists)
     }
     
     func testButton4DisplaysLabel() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         app.buttons["4"].tap()
         XCTAssert(app.staticTexts["you chose 4"].exists)
     }
     
     func testButton5DisplaysLabel() {
-        app.tabBars.buttons["Second"].tap()
+        app.tabBars.buttons["Feeling"].tap()
         app.buttons["5"].tap()
         XCTAssert(app.staticTexts["you chose 5"].exists)
+    }
+    
+    func testWhyMessageIsDisplayed() {
+        app.tabBars.buttons["Feeling"].tap()
+        app.buttons["5"].tap()
+        XCTAssert(app.staticTexts["Why do you feel like this?"].exists)
+    }
+    
+    func testCauseButtonsAreDisplayed() {
+        app.tabBars.buttons["Feeling"].tap()
+        app.buttons["5"].tap()
+        XCTAssert(app.buttons["Work"].exists)
+        XCTAssert(app.buttons["Family"].exists)
+        XCTAssert(app.buttons["Partner"].exists)
+        XCTAssert(app.buttons["Health"].exists)
+        XCTAssert(app.buttons["Home"].exists)
+        XCTAssert(app.buttons["Finances"].exists)
+        XCTAssert(app.buttons["Weather"].exists)
+        XCTAssert(app.buttons["Other"].exists)
+        XCTAssert(app.buttons["I'd rather not say"].exists)
     }
     
 }
