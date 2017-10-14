@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "118EA24F9DB37ED6766690FE6BB72E36"
-               BuildableName = "Pods_moomoodUITests.framework"
-               BlueprintName = "Pods-moomoodUITests"
+               BlueprintIdentifier = "C321297C3045A2D34570469CAEF11B8A"
+               BuildableName = "ApiAI.framework"
+               BlueprintName = "ApiAI"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "118EA24F9DB37ED6766690FE6BB72E36"
-            BuildableName = "Pods_moomoodUITests.framework"
-            BlueprintName = "Pods-moomoodUITests"
+            BlueprintIdentifier = "C321297C3045A2D34570469CAEF11B8A"
+            BuildableName = "ApiAI.framework"
+            BlueprintName = "ApiAI"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "118EA24F9DB37ED6766690FE6BB72E36"
-               BuildableName = "Pods_moomoodUITests.framework"
-               BlueprintName = "Pods-moomoodUITests"
+               BlueprintIdentifier = "C960520C7C225EF0EFEC77FE61F705E8"
+               BuildableName = "Realm.framework"
+               BlueprintName = "Realm"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "118EA24F9DB37ED6766690FE6BB72E36"
-            BuildableName = "Pods_moomoodUITests.framework"
-            BlueprintName = "Pods-moomoodUITests"
+            BlueprintIdentifier = "C960520C7C225EF0EFEC77FE61F705E8"
+            BuildableName = "Realm.framework"
+            BlueprintName = "Realm"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
