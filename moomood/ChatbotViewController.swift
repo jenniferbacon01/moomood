@@ -151,6 +151,34 @@ class ChatbotViewController: JSQMessagesViewController {
                 self.handleStoreBotMsg(responseFromAI)
             }
             
+//            if let actionFromAI = response.result.action as? String {
+//                print(actionFromAI)
+//                print (response.result.parameters["mood"]!.stringValue)
+//
+//
+//
+//                self.readApiAction(actionFromAI)
+//
+//            }
+            
+            if let parameters = response.result.parameters as? [String: AIResponseParameter]{
+                if let mood = parameters["mood"]?.stringValue! {
+                    let newMood = mood.replacingOccurrences(of: "/n", with: "")
+                    print(newMood, terminator: "")
+                    switch newMood {
+                    case "happy":
+                        print("you are happy")
+                    default:
+                        print("this is default")
+                    }
+                }
+//                let date = parameters["date"]!.stringValue!
+//                let cause = parameters["reason"]!.stringValue!
+                
+                
+                
+            }
+            
         }, failure: { (request, error) in
             print(error!)
         })
@@ -175,7 +203,14 @@ class ChatbotViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
-
+    func readApiAction(_ botAction: String){
+        if (botAction == "recordThisMood") {
+            print("please record")
+        } else {
+            print("please do not record")
+        }
+    }
+        
 //
 //    func addNavBar() {
 //        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: (self.view.frame.size.width), height:54)) // Offset by 20 pixels vertically to take the status bar into account
