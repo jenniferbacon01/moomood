@@ -104,6 +104,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func financesButton(_ sender: Any) {
         causeButtonMethod(cause: "Finances")
+        
     }
     
     @IBAction func weatherButton(_ sender: Any) {
@@ -131,6 +132,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         print(mood!.cause)
         NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
+        performSegue(withIdentifier: "goToChat", sender: nil)
     }
     
     func hideNumberButtons(){
