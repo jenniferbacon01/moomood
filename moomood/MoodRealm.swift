@@ -1,5 +1,5 @@
 //
-//  MoodR.swift
+//  MoodRealm.swift
 //  moomood
 //
 //  Created by Elizabeth Chan on 14/10/2017.
@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-class MoodR: Object{
+class MoodRealm: Object{
     
-    @objc dynamic var rating = ""
+    @objc dynamic var rating = 0
     @objc dynamic var date = ""
     @objc dynamic var cause = ""
     
