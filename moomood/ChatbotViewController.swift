@@ -21,7 +21,7 @@ class ChatbotViewController: JSQMessagesViewController {
     // setting variables
     var messages = [JSQMessage]()
     var user1 = User(id: "1", name: "Elizabeth")
-    var user2 = User(id: "2", name: "momoobot")
+    var user2 = User(id: "2", name: "moomoobot")
     var currentUser: User {
         return user1
     }
@@ -31,6 +31,12 @@ class ChatbotViewController: JSQMessagesViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,6 +47,7 @@ class ChatbotViewController: JSQMessagesViewController {
         self.senderDisplayName = currentUser.name
         
         self.queryAllMessages()
+        
     }
     
     // what to happen when the send button is clicked
@@ -69,7 +76,7 @@ class ChatbotViewController: JSQMessagesViewController {
         return NSAttributedString(string: messageUserName!)
     }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
-        return 15
+        return 20
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -167,6 +174,40 @@ class ChatbotViewController: JSQMessagesViewController {
         //update UI
         finishSendingMessage()
     }
+    
+
+//
+//    func addNavBar() {
+//        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: (self.view.frame.size.width), height:54)) // Offset by 20 pixels vertically to take the status bar into account
+//
+//        navigationBar.barTintColor = UIColor.gray
+//        navigationBar.tintColor = UIColor.white
+//
+//        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+//
+//        // Create a navigation item with a title
+//        let navigationItem = UINavigationItem()
+//        navigationItem.title = "MoMoo"
+//
+//        // Create left and right button for navigation item
+//        let leftButton =  UIBarButtonItem(title: "Back", style:   .plain, target: self, action: #selector(btn_clicked(_:)))
+//
+//        // Create two buttons for the navigation item
+//        navigationItem.leftBarButtonItem = leftButton
+//
+//
+//        // Assign the navigation item to the navigation bar
+//        navigationBar.items = [navigationItem]
+//
+//        // Make the navigation bar a subview of the current view controller
+//        self.view.addSubview(navigationBar)
+//    }
+//
+//    @objc func btn_clicked(_ sender: UIBarButtonItem) {
+//        // Do something
+//        performSegue(withIdentifier: "segueBackToHomeVC", sender: self)
+//    }
+    
     
 
 }
