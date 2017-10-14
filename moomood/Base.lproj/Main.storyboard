@@ -426,11 +426,12 @@
                         <outlet property="weatherButton" destination="OOd-RZ-Zmk" id="Y8S-Oj-IaD"/>
                         <outlet property="whyMessage" destination="tzu-By-OZJ" id="Joc-aC-4nw"/>
                         <outlet property="workButton" destination="qoW-WV-Hn9" id="yFO-5r-dKj"/>
+                        <segue destination="VM5-lu-TjR" kind="show" identifier="goToChat" id="EjJ-jA-AnB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="179"/>
+            <point key="canvasLocation" x="-334" y="798"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="Zpu-M1-Ult">
@@ -482,9 +483,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejh-zR-krM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="179"/>
+            <point key="canvasLocation" x="406" y="179"/>
         </scene>
-        <!--Chatbot View Controller-->
+        <!--Moomood-->
         <scene sceneID="dVR-4N-Jhx">
             <objects>
                 <viewController id="8c0-q6-hmv" customClass="ChatbotViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -494,7 +495,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="GuX-UV-T5A"/>
                     </view>
-                    <navigationItem key="navigationItem" id="H0J-4u-Mg2">
+                    <navigationItem key="navigationItem" title="Moomood" id="H0J-4u-Mg2">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Z5R-QF-eic">
                             <connections>
                                 <segue destination="49e-Tb-3d3" kind="showDetail" id="AyD-JP-vh5"/>
@@ -519,8 +520,8 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="kf2-kq-9Bf" kind="relationship" relationship="viewControllers" id="9J6-bt-Q0g"/>
                         <segue destination="VM5-lu-TjR" kind="relationship" relationship="viewControllers" id="EPx-6D-ttd"/>
                     </connections>
@@ -529,11 +530,11 @@
             </objects>
             <point key="canvasLocation" x="10" y="-584"/>
         </scene>
-        <!--Chat-->
+        <!--Navigation Controller-->
         <scene sceneID="3Kk-mV-glQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VM5-lu-TjR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="wWg-8a-WKH" userLabel="Chat"/>
+                    <tabBarItem key="tabBarItem" title="" image="Chat" id="wWg-8a-WKH" userLabel="Chat"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5un-ua-USA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -546,12 +547,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlP-sV-MHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231.8840579710145" y="178.53260869565219"/>
+            <point key="canvasLocation" x="1154" y="798"/>
         </scene>
     </scenes>
     <resources>
         <image name="Book" width="23" height="19"/>
         <image name="Chart" width="24" height="20"/>
+        <image name="Chat" width="24" height="24"/>
         <image name="HeartEmpty" width="25" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EPx-6D-ttd"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 extension UIView {
     
@@ -104,6 +105,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func financesButton(_ sender: Any) {
         causeButtonMethod(cause: "Finances")
+        
     }
     
     @IBAction func weatherButton(_ sender: Any) {
@@ -131,7 +133,34 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         print(mood!.cause)
         NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
+        
+        addMood(formattedDate, rating: number!, cause: cause)
+        
+        performSegue(withIdentifier: "goToChat", sender: nil)
     }
+    
+    
+    
+    
+    // define a new function to save data to Realm
+    func addMood(_ date: String, rating: Int, cause: String) {
+        // class Message
+        let moodrealm = MoodRealm()
+        moodrealm.date = date
+        moodrealm.rating = rating
+        moodrealm.cause = cause
+        
+        // write to Realm
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(moodrealm)
+        }
+    }
+    
+    
+    
+    
+    
     
     func hideNumberButtons(){
         button1.isHidden = true
