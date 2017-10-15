@@ -13,6 +13,7 @@ class AnalysisViewController: UIViewController {
     
     var ratings: [Double] = [1,2,3,4,5]
     var matchedRatings: [String] = []
+    var quantity: [Double] = [7,6,3,4,10]
     
     @IBOutlet weak var barChart: BarChartView!
     
@@ -34,10 +35,12 @@ class AnalysisViewController: UIViewController {
         //set up line array
         var barChartEntry = [BarChartDataEntry]()
         
-        for i in (0..<moods.count){
-            let value = BarChartDataEntry(x: Double(moods[i].rating), y: Double(i))
+        for i in (0..<quantity.count){
+            let value = BarChartDataEntry(x: Double(i), y: Double(quantity[i]))
             barChartEntry.append(value)
         }
+        
+        print(barChartEntry)
         
         let frequencyBar = BarChartDataSet(values: barChartEntry, label: "Frequency")
         formatGraph(frequencyBar: frequencyBar)
@@ -48,14 +51,19 @@ class AnalysisViewController: UIViewController {
         barChart.data = data
         
         barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:matchedRatings)
-        barChart.xAxis.granularity = 1
-        barChart.setVisibleXRangeMaximum(6)
+        barChart.xAxis.axisMinimum = -0.5
+        barChart.xAxis.axisMaximum = Double(barChartEntry.count) - 0.5;
+        barChart.xAxis.axisMaximum = 4.5
+        barChart.xAxis.granularityEnabled = true
+        barChart.xAxis.granularity = 1.0
+        barChart.setVisibleXRangeMaximum(5)
+        data.barWidth = 0.80
         
         // show the latest entries
-        let when = DispatchTime.now() + 0.1
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            self.barChart.moveViewToX(Double(moods.count - 1))
-        }
+//        let when = DispatchTime.now() + 0.1
+//        DispatchQueue.main.asyncAfter(deadline: when) {
+//            self.barChart.moveViewToX(Double(moods.count - 1))
+//        }
     }
     
     func formatGraph (frequencyBar: BarChartDataSet){
@@ -82,10 +90,6 @@ class AnalysisViewController: UIViewController {
         // label at the bottom
         barChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
-        // fill in area below line
-        
-        //remove label and color block
-        
         // remove right y axis
         barChart.rightAxis.enabled = false
 
@@ -101,8 +105,7 @@ class AnalysisViewController: UIViewController {
         barChart.xAxis.avoidFirstLastClippingEnabled = true
 
         // setting scale and range on y axis
-        barChart.leftAxis.axisMinimum = 0.5
-        barChart.leftAxis.axisMaximum = 5.3
+        barChart.leftAxis.axisMinimum = 0
         barChart.leftAxis.granularityEnabled = true
         barChart.leftAxis.granularity = 1.0
         

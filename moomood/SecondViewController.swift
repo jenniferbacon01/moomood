@@ -10,7 +10,8 @@ import UIKit
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
-    
+    var increasedValue: Int = 0
+  
     @IBOutlet weak var message: UILabel!
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -29,6 +30,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func button1(_ sender: Any) {
         buttonMethod(number:1)
+        increasedValue += 1
+        print(increasedValue)
+
     }
     
     @IBAction func button2(_ sender: Any) {
