@@ -20,8 +20,8 @@ class ChatbotViewController: JSQMessagesViewController {
     
     // setting variables
     var messages = [JSQMessage]()
-    var user1 = User(id: "1", name: "Elizabeth")
-    var user2 = User(id: "2", name: "moomoobot")
+    var user1 = User(id: "1", name: "You")
+    var user2 = User(id: "2", name: "moomooBot")
     var currentUser: User {
         return user1
     }
