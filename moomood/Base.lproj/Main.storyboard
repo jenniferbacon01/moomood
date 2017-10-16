@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Journal-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-Mo-sGf">
-                                <rect key="frame" x="0.0" y="10" width="375" height="503"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="431"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,10 +50,24 @@
                                     <action selector="test:" destination="9pv-A4-QxB" eventType="touchUpInside" id="lED-YZ-GiB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4R-Xn-xQa">
+                                <rect key="frame" x="129" y="20" width="116" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Journal">
+                                        <attributes>
+                                            <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="28" name="AvenirNext-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Book" id="acW-dT-cKf">
+                    <tabBarItem key="tabBarItem" title="Journal" image="Book" id="acW-dT-cKf">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBarItem>
                     <connections>
@@ -62,9 +76,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-994" y="179"/>
+            <point key="canvasLocation" x="-994.39999999999998" y="178.56071964017991"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Sense-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -406,7 +420,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="HeartEmpty" id="cPa-gy-q4n">
+                    <tabBarItem key="tabBarItem" title="Sense" image="HeartEmpty" id="cPa-gy-q4n">
                         <color key="badgeColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
@@ -433,7 +447,7 @@
             </objects>
             <point key="canvasLocation" x="-335.19999999999999" y="797.45127436281871"/>
         </scene>
-        <!--Chart View Controller-->
+        <!--Charts-->
         <scene sceneID="Zpu-M1-Ult">
             <objects>
                 <viewController id="kf2-kq-9Bf" customClass="ChartViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -445,21 +459,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-qD-iHd">
-                                <rect key="frame" x="136" y="35" width="102" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="RiW-JL-QsL"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Graph">
-                                        <attributes>
-                                            <font key="NSFont" size="28" name="AvenirNext-UltraLight"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIC-7H-Ci7" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="10" y="348" width="365" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,6 +469,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-qD-iHd">
+                                <rect key="frame" x="136" y="41" width="102" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="RiW-JL-QsL"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Charts">
+                                        <attributes>
+                                            <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="28" name="AvenirNext-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -479,7 +494,7 @@
                             <constraint firstItem="p6f-qD-iHd" firstAttribute="top" secondItem="dhs-Vq-P6a" secondAttribute="bottom" id="xQo-Xz-Iwr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Chart" id="Idu-qo-mwa">
+                    <tabBarItem key="tabBarItem" title="Charts" image="Chart" id="Idu-qo-mwa">
                         <color key="badgeColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
@@ -491,7 +506,7 @@
             </objects>
             <point key="canvasLocation" x="405.60000000000002" y="178.56071964017991"/>
         </scene>
-        <!--Moomood-->
+        <!--MoomooBot-->
         <scene sceneID="dVR-4N-Jhx">
             <objects>
                 <viewController id="8c0-q6-hmv" customClass="ChatbotViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -501,8 +516,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="GuX-UV-T5A"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Moomood" id="H0J-4u-Mg2">
+                    <navigationItem key="navigationItem" title="MoomooBot" id="H0J-4u-Mg2">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Z5R-QF-eic">
+                            <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="49e-Tb-3d3" kind="showDetail" id="AyD-JP-vh5"/>
                             </connections>
@@ -517,7 +533,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,11 +552,11 @@
             </objects>
             <point key="canvasLocation" x="10" y="-584"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MoomooBot-->
         <scene sceneID="3Kk-mV-glQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VM5-lu-TjR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Chat" id="wWg-8a-WKH" userLabel="Chat"/>
+                    <tabBarItem key="tabBarItem" title="MoomooBot" image="Chat" id="wWg-8a-WKH" userLabel="Chat"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5un-ua-USA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -563,6 +579,6 @@
         <image name="HeartEmpty" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EPx-6D-ttd"/>
+        <segue reference="EjJ-jA-AnB"/>
     </inferredMetricsTieBreakers>
 </document>

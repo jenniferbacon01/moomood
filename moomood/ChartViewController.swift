@@ -257,6 +257,15 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chtChart.layer.shadowColor = UIColor.darkGray.cgColor
+        chtChart.layer.shadowOpacity = 1
+        chtChart.layer.shadowOffset = CGSize.zero
+        chtChart.layer.shadowRadius = 10
+        
+        barChart.layer.shadowColor = UIColor.lightGray.cgColor
+        barChart.layer.shadowOpacity = 1
+        barChart.layer.shadowOffset = CGSize.zero
+        barChart.layer.shadowRadius = 10
         // Do any additional setup after loading the view.
     }
 
