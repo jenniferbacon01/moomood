@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import RealmSwift
 
 class ChartViewController: UIViewController {
     
@@ -17,13 +18,18 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var chtChart: LineChartView!
     
     func setUpChart (){
-        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
-        
-        var moods: [Mood] = []
-        
-        if let tempmoods = moodsObject as? [Mood] {
-            moods = tempmoods
-        }
+//        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
+//
+//        var moods: [Mood] = []
+//
+//        if let tempmoods = moodsObject as? [Mood] {
+//            moods = tempmoods
+//        }
+//
+        let realm = try! Realm()
+        let moods = realm.objects(MoodDB.self)
+        print(moods)
+
         
         // set up matched dates array
         for i in (0..<moods.count){
