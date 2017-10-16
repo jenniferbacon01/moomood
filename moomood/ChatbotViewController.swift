@@ -163,7 +163,12 @@ class ChatbotViewController: JSQMessagesViewController {
                 
                 if apiAction == "recordGoodMood" || apiAction == "recordBadMood" || apiAction == "recordNeutralMood" {
                     if let parameters = response.result.parameters as? [String: AIResponseParameter]{
-                        let mood = parameters["feelings"]!.stringValue
+                        if apiAction == "recordGoodMood" {
+                            mood = parameters["feelings"]!.stringValue
+                        } else if apiAction == "recordBadMood" {
+                            mood = parameters["bad_feelings"]!.stringValue
+                        }
+                        
                         let reason = parameters["reason"]!.stringValue
                         let date = parameters["date"]!.stringValue
                         
@@ -172,7 +177,6 @@ class ChatbotViewController: JSQMessagesViewController {
                         newReason = reason?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
                         
                         newDate = date?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
-
                     }
                     
                     //date formatter
