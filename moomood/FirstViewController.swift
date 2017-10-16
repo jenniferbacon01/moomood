@@ -30,14 +30,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func loadData(){
         let realm = try! Realm()
         moods = realm.objects(MoodDB.self)
-//        for i in (0..<moods!.count){
-//            if moods![i].moodDescription != nil {
-//                let mood = moods![i]
-//                moodsWithDesc.append(mood)
-//            }
-//        }
-//        print(moods)
-//        print(moodsWithDesc)
     }
     
     
@@ -61,11 +53,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func viewDidAppear(_ animated: Bool) {
-//        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
-//
-//        if let tempmoods = moodsObject as? [Mood] {
-//            moods = tempmoods
-//        }
         
         print(moods)
         
