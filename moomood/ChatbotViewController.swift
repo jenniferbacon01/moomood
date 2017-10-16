@@ -139,6 +139,7 @@ class ChatbotViewController: JSQMessagesViewController {
         var newReason: String!
         var newDate: String!
         var autoRating: Int!
+        var mood: String!
  
         
         let request = ApiAI.shared().textRequest()
@@ -184,14 +185,6 @@ class ChatbotViewController: JSQMessagesViewController {
                     if newDate! == "today" {
                         newDate = formattedDate
                     }
-                    
-                    
-                    
-                    
-                    
-               
-                    
-                    
                     
                     if apiAction == "recordGoodMood" {
                         autoRating = 4
