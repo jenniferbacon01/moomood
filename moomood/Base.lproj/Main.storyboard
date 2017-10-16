@@ -446,7 +446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-Sy-cMS" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="10" y="94" width="365" height="524"/>
+                                <rect key="frame" x="10" y="94" width="365" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -465,6 +465,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIC-7H-Ci7" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="360" width="365" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -478,12 +483,13 @@
                         <color key="badgeColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="barChart" destination="CIC-7H-Ci7" id="I1q-SX-9U8"/>
                         <outlet property="chtChart" destination="bLF-Sy-cMS" id="cy3-wm-sCb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejh-zR-krM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="179"/>
+            <point key="canvasLocation" x="405.60000000000002" y="178.56071964017991"/>
         </scene>
         <!--Moomood-->
         <scene sceneID="dVR-4N-Jhx">
@@ -557,6 +563,6 @@
         <image name="HeartEmpty" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EPx-6D-ttd"/>
+        <segue reference="EjJ-jA-AnB"/>
     </inferredMetricsTieBreakers>
 </document>
