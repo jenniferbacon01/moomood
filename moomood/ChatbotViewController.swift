@@ -88,9 +88,9 @@ class ChatbotViewController: JSQMessagesViewController {
         let message = messages[indexPath.row]
         
         if currentUser.id == message.senderId {
-            return bubbleFactory?.outgoingMessagesBubbleImage(with: .green)
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: .lightGray)
         } else {
-            return bubbleFactory?.incomingMessagesBubbleImage(with: .blue)
+            return bubbleFactory?.incomingMessagesBubbleImage(with: .purple)
         }
     }
     
