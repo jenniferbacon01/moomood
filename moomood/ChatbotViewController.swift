@@ -134,21 +134,82 @@ class ChatbotViewController: JSQMessagesViewController {
     
     // handle sending request and receiving response to/from chatbot's api
     func handleSendMessageToBot(_ message: String) {
+
+        var newMood: String!
+        var newReason: String!
+        var newDate: String!
+        var autoRating: Int!
+ 
+        
         let request = ApiAI.shared().textRequest()
         request?.query = message
         
         // send request and receive response from chatbot api
         request?.setMappedCompletionBlockSuccess({ (request, response) in
-            
+         
             //handle response from chatbot's api
             let response = response as! AIResponse
-            
+         
             if let responseFromAI = response.result.fulfillment.messages.first?["speech"] as? String {
                 
-                print(response.result.fulfillment.speech)
-                
+
                 // store response to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
                 self.handleStoreBotMsg(responseFromAI)
+                
+                let apiAction = response.result.action
+                
+              
+                
+                if apiAction == "recordGoodMood" || apiAction == "recordBadMood" || apiAction == "recordNeutralMood" {
+                    if let parameters = response.result.parameters as? [String: AIResponseParameter]{
+                        let mood = parameters["feelings"]!.stringValue
+                        let reason = parameters["reason"]!.stringValue
+                        let date = parameters["date"]!.stringValue
+                        
+                        newMood = mood?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
+                        
+                        newReason = reason?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
+                        
+                        newDate = date?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
+
+                    }
+                    
+                    //date formatter
+                    let unformattedDate = Date()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat="yyyy-MM-dd"
+                    let formattedDate = dateFormatter.string(from: unformattedDate)
+                    
+                    
+                    if newDate! == "today" {
+                        newDate = formattedDate
+                    }
+                    
+                    
+                    
+                    
+                    
+               
+                    
+                    
+                    
+                    if apiAction == "recordGoodMood" {
+                        autoRating = 4
+                    } else if (apiAction == "recordBadMood") {
+                        autoRating = 2
+                    } else if (apiAction == "recordNeutralMood") {
+                        autoRating = 3
+                    }
+                    
+                    if newMood! != "" && newReason! != "" {
+                        self.addMood(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
+                    }
+                    
+                    
+                }
+//                print(newMood!)
+//                print(newReason!)
+//                print(newDate!)
             }
             
         }, failure: { (request, error) in
@@ -159,11 +220,33 @@ class ChatbotViewController: JSQMessagesViewController {
         ApiAI.shared().enqueue(request)
     }
     
+    
+
+// define a new function to save data to Realm
+    func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
+    // class Message
+    let moodDB = MoodDB()
+    moodDB.date = date
+    moodDB.rating = rating
+    moodDB.cause = cause
+    moodDB.moodDescription = moodDescription
+    moodDB.others = others
+        
+    
+    // write to Realm
+    let realm = try! Realm()
+    try! realm.write {
+        realm.add(moodDB)
+    }
+}
+
+   
     // handle receiving message from chatbot's api
     func handleStoreBotMsg(_ botMsg: String){
         
         // store message to local Realm
         addMessage(user2.name, senderID: user2.id, senderMessage: botMsg)
+        
         
         // convert to JSQMessage
         let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
@@ -175,42 +258,19 @@ class ChatbotViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
-
-//
-//    func addNavBar() {
-//        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: (self.view.frame.size.width), height:54)) // Offset by 20 pixels vertically to take the status bar into account
-//
-//        navigationBar.barTintColor = UIColor.gray
-//        navigationBar.tintColor = UIColor.white
-//
-//        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-//
-//        // Create a navigation item with a title
-//        let navigationItem = UINavigationItem()
-//        navigationItem.title = "MoMoo"
-//
-//        // Create left and right button for navigation item
-//        let leftButton =  UIBarButtonItem(title: "Back", style:   .plain, target: self, action: #selector(btn_clicked(_:)))
-//
-//        // Create two buttons for the navigation item
-//        navigationItem.leftBarButtonItem = leftButton
-//
-//
-//        // Assign the navigation item to the navigation bar
-//        navigationBar.items = [navigationItem]
-//
-//        // Make the navigation bar a subview of the current view controller
-//        self.view.addSubview(navigationBar)
-//    }
-//
-//    @objc func btn_clicked(_ sender: UIBarButtonItem) {
-//        // Do something
-//        performSegue(withIdentifier: "segueBackToHomeVC", sender: self)
-//    }
-    
-    
+    func readApiAction(_ botAction: String){
+        if (botAction == "recordThisMood") {
+            print("please record")
+        } else {
+            print("please do not record")
+        }
+    }
 
 }
+
+//              print(response.result.parameters)
+//                print(response.result.parameters["mood"])
+//                print((response.result.parameters as? NSDictionary)?["mood"] as? AIResponseParameter!)
 
 
 
