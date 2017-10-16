@@ -128,9 +128,6 @@ class ChartViewController: UIViewController {
    
     
     @IBOutlet weak var barChart: BarChartView!
-//    var exampleRatings: [Double] = [1,2,3,4,5]
-//    var matchedRatings: [String] = []
-//    var exampleQuantity: [Double] = [7,6,3,4,10]
     
     
     
@@ -202,11 +199,6 @@ class ChartViewController: UIViewController {
             barChart.setVisibleXRangeMaximum(5)
             data.barWidth = 0.80
             
-            // show the latest entries
-            //        let when = DispatchTime.now() + 0.1
-            //        DispatchQueue.main.asyncAfter(deadline: when) {
-            //            self.barChart.moveViewToX(Double(moods.count - 1))
-            //        }
         }
     
     func formatGraph (frequencyBar: BarChartDataSet){
