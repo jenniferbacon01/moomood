@@ -134,7 +134,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         print(mood!.cause)
         NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
         
-        addMood(formattedDate, rating: number!, cause: cause)
+        addMood(formattedDate, rating: number!, cause: cause, moodDescription: "", others: "")
         
         performSegue(withIdentifier: "goToChat", sender: nil)
     }
@@ -143,23 +143,21 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
     // define a new function to save data to Realm
-    func addMood(_ date: String, rating: Int, cause: String) {
+    func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
         // class Message
-        let moodrealm = MoodRealm()
-        moodrealm.date = date
-        moodrealm.rating = rating
-        moodrealm.cause = cause
+        let moodDB = MoodDB()
+        moodDB.date = date
+        moodDB.rating = rating
+        moodDB.cause = cause
+        moodDB.moodDescription = moodDescription
+        moodDB.others = others
         
         // write to Realm
         let realm = try! Realm()
         try! realm.write {
-            realm.add(moodrealm)
+            realm.add(moodDB)
         }
     }
-    
-    
-    
-    
     
     
     func hideNumberButtons(){
