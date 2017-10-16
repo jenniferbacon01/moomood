@@ -179,7 +179,7 @@ class ChartViewController: UIViewController {
             var barChartEntry = [BarChartDataEntry]()
             
             for i in (0..<frequencies.count){
-                let value = BarChartDataEntry(x: Double(i), y: Double(frequencies[i]))
+                let value = BarChartDataEntry(x: Double(i)+1, y: Double(frequencies[i]))
                 barChartEntry.append(value)
             }
             
@@ -194,9 +194,9 @@ class ChartViewController: UIViewController {
             barChart.data = data
             
 //            barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:[String(barRatings)])
-            barChart.xAxis.axisMinimum = -0.5
+            barChart.xAxis.axisMinimum = 0.5
             barChart.xAxis.axisMaximum = Double(barChartEntry.count) - 0.5;
-            barChart.xAxis.axisMaximum = 4.5
+            barChart.xAxis.axisMaximum = 5.5
             barChart.xAxis.granularityEnabled = true
             barChart.xAxis.granularity = 1.0
             barChart.setVisibleXRangeMaximum(5)
