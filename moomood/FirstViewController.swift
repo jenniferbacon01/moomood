@@ -11,7 +11,7 @@ import RealmSwift
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var moods: Results<MoodDB>!
+    var moods: Results<Mood>!
 //    var moodsWithDesc: [MoodDB] = []
 
     
@@ -29,7 +29,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadData(){
         let realm = try! Realm()
-        moods = realm.objects(MoodDB.self)
+        moods = realm.objects(Mood.self)
     }
     
     

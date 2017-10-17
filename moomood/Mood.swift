@@ -10,7 +10,7 @@
 import Foundation
 import RealmSwift
 
-class MoodDB: Object{
+class Mood: Object{
     
     @objc dynamic var rating = 0
     @objc dynamic var date = ""
