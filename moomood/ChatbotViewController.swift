@@ -92,6 +92,18 @@ class ChatbotViewController: JSQMessagesViewController {
         
     }
     
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            
+            textView.resignFirstResponder()
+            
+            self.didPressSend(nil, withMessageText: self.keyboardController.textView?.text, senderId: user1.id, senderDisplayName: user1.name, date: Date())
+        }
+        
+        return true
+    }
+    
     // what to happen when the send button is clicked
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         
