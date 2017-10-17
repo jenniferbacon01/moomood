@@ -82,6 +82,7 @@ class ChatbotViewController: JSQMessagesViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.inputToolbar.contentView.leftBarButtonItem = nil
         self.tabBarController?.tabBar.isHidden = true
         
         self.senderId = currentUser.id
@@ -89,6 +90,18 @@ class ChatbotViewController: JSQMessagesViewController {
         
         self.queryAllMessages()
         
+    }
+    
+    override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            
+            textView.resignFirstResponder()
+            
+            self.didPressSend(nil, withMessageText: self.keyboardController.textView?.text, senderId: user1.id, senderDisplayName: user1.name, date: Date())
+        }
+        
+        return true
     }
     
     // what to happen when the send button is clicked
