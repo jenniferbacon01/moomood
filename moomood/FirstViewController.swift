@@ -7,38 +7,43 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var moods: [Mood] = []
+    var moods: Results<MoodDB>!
+//    var moodsWithDesc: [MoodDB] = []
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        loadData()
         return moods.count
     }
     
-//    func tableView(_ tableView: UITableView, numberOfColumnsInSection section: Int) -> Int {
-//        return 2
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        loadData()
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        
-        cell.textLabel?.text = String(describing: moods[indexPath.row].date + String(describing:moods[indexPath.row].rating))
+        cell.textLabel?.text = String(describing: moods[indexPath.row].date + String(describing:moods[indexPath.row].moodDescription))
         return cell
     }
     
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
-            
-            moods.remove(at: indexPath.row)
-            
-            table.reloadData()
-            
-            NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
-            
-        }
+    func loadData(){
+        let realm = try! Realm()
+        moods = realm.objects(MoodDB.self)
     }
+    
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.delete {
+//
+//            moods.remove(at: indexPath.row)
+//
+//            table.reloadData()
+//
+//            NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
+//
+//        }
+//    }
     
     
     
@@ -48,11 +53,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func viewDidAppear(_ animated: Bool) {
-        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
         
-        if let tempmoods = moodsObject as? [Mood] {
-            moods = tempmoods
-        }
+        print(moods)
         
         table.reloadData()
     }

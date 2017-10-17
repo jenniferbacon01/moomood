@@ -30,7 +30,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var chosenMoodMessage: UILabel!
     @IBOutlet weak var whyMessage: UILabel!
-    var mood: Mood?
+//    var mood: Mood?
     var number: Int?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -122,17 +122,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat="dd MMM"
         let formattedDate = dateFormatter.string(from: unformattedDate)
-        mood = Mood(date:formattedDate,rating: number!, cause: cause)
-        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
-        var moods: [Mood]
-        if let tempmoods = moodsObject as? [Mood] {
-            moods = tempmoods
-            moods.append(mood!)
-        } else {
-            moods = [mood!]
-        }
-        print(mood!.cause)
-        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
+//        mood = Mood(date:formattedDate,rating: number!, cause: cause)
+//        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
+//        var moods: [Mood]
+//        if let tempmoods = moodsObject as? [Mood] {
+//            moods = tempmoods
+//            moods.append(mood!)
+//        } else {
+//            moods = [mood!]
+//        }
+//        print(mood!.cause)
+//        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
         
         addMood(formattedDate, rating: number!, cause: cause, moodDescription: "", others: "")
         

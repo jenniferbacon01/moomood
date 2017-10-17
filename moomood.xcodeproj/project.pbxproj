@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1ECBDE60758E06FC04D11AB0 /* Pods_moomoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D6E7C3106318C9BDAA5084 /* Pods_moomoodUITests.framework */; };
-		464A6A3D1F8FC3220075270C /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464A6A3C1F8FC3220075270C /* Cause.swift */; };
 		C69F95FB1028B7E1E3647C16 /* Pods_moomood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58C8543E7BC31DDC830877D /* Pods_moomood.framework */; };
 		D9374CC61F93C92100FA0481 /* MoodDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9374CC51F93C92000FA0481 /* MoodDB.swift */; };
 		D979BE191F8E70F6002A4AC5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */; };
 		D979BE1B1F8FFBBA002A4AC5 /* ChatbotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */; };
+
 		D979BE1D1F904749002A4AC5 /* RealmSwiftObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE1C1F904749002A4AC5 /* RealmSwiftObj.swift */; };
 		D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */; };
+
 		E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */; };
 		E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */; };
 		E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */; };
@@ -23,7 +24,6 @@
 		E6C6C9D41F8E211400BD5531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */; };
 		E6C6C9DF1F8E211400BD5531 /* moomoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9DE1F8E211400BD5531 /* moomoodTests.swift */; };
 		E6C6C9EA1F8E211500BD5531 /* moomoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9E91F8E211500BD5531 /* moomoodUITests.swift */; };
-		E6C6C9F81F8E2FEB00BD5531 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */; };
 		FAE06F6330FEB6677FF40F01 /* Pods_moomoodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED0BC4C07FE369F9AC2EF0A /* Pods_moomoodTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,6 @@
 		428B17691EC1C4B16383249C /* Pods-moomood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomood/Pods-moomood.debug.xcconfig"; sourceTree = "<group>"; };
 		44F7BB49D60B1091F19F1A64 /* Pods-moomoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodTests/Pods-moomoodTests.release.xcconfig"; sourceTree = "<group>"; };
 		451735FC10E6AF2F295927B5 /* Pods-moomoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodUITests/Pods-moomoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		464A6A3C1F8FC3220075270C /* Cause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
 		8B325570D2310684A0349AF3 /* Pods-moomood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomood.release.xcconfig"; path = "Pods/Target Support Files/Pods-moomood/Pods-moomood.release.xcconfig"; sourceTree = "<group>"; };
 		AE7ADD9165F73CD3D7A420F4 /* Pods-moomoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodTests/Pods-moomoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0D6E7C3106318C9BDAA5084 /* Pods_moomoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,8 +56,10 @@
 		D9374CC51F93C92000FA0481 /* MoodDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDB.swift; sourceTree = "<group>"; };
 		D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewController.swift; sourceTree = "<group>"; };
+
 		D979BE1C1F904749002A4AC5 /* RealmSwiftObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSwiftObj.swift; sourceTree = "<group>"; };
 		D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMediaViewController.swift; sourceTree = "<group>"; };
+
 		DED0BC4C07FE369F9AC2EF0A /* Pods_moomoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C41F8E211400BD5531 /* moomood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moomood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		E6C6C9E51F8E211500BD5531 /* moomoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moomoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9E91F8E211500BD5531 /* moomoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moomoodUITests.swift; sourceTree = "<group>"; };
 		E6C6C9EB1F8E211500BD5531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,12 +156,10 @@
 				E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */,
 				E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */,
 				E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */,
-				E6C6C9F71F8E2FEB00BD5531 /* Mood.swift */,
-				464A6A3C1F8FC3220075270C /* Cause.swift */,
 				E6C6C9CD1F8E211400BD5531 /* Main.storyboard */,
 				D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */,
 				D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */,
-				D979BE1C1F904749002A4AC5 /* RealmSwiftObj.swift */,
+				D979BE1C1F904749002A4AC5 /* ChatMessage.swift */,
 				D9374CC51F93C92000FA0481 /* MoodDB.swift */,
 				E6C6C9D01F8E211400BD5531 /* Assets.xcassets */,
 				E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */,
@@ -492,10 +490,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D979BE1D1F904749002A4AC5 /* RealmSwiftObj.swift in Sources */,
+				D979BE1D1F904749002A4AC5 /* ChatMessage.swift in Sources */,
 				D979BE1B1F8FFBBA002A4AC5 /* ChatbotViewController.swift in Sources */,
-				E6C6C9F81F8E2FEB00BD5531 /* Mood.swift in Sources */,
-				464A6A3D1F8FC3220075270C /* Cause.swift in Sources */,
 				E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */,
 				E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */,
 				D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */,
