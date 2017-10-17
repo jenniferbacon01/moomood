@@ -47,6 +47,11 @@ class ChatbotViewController: JSQMessagesViewController {
                     return image
                 }
             }
+//            if mediaItem is JSQVideoMediaItem {
+//                let videoItem = mediaItem as! JSQVideoMediaItem
+//                let videoURL = videoItem.fileURL
+//            }
+            
         }
         return nil
     }
@@ -273,8 +278,8 @@ class ChatbotViewController: JSQMessagesViewController {
         let rawPhotoURL = "https://static.pexels.com/photos/20787/pexels-photo.jpg"
         sendPhotoToUser(rawPhotoURL)
         
-        let rawVideoURL = "https://www.youtube.com/watch?v=5dsGWM5XGdg"
-        sendVideoToUser(rawVideoURL)
+//        let rawVideoURL = "https://www.youtube.com/watch?v=5dsGWM5XGdg"
+//        sendVideoToUser(rawVideoURL)
         
         //update UI
         finishSendingMessage()
