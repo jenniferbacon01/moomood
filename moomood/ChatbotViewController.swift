@@ -82,6 +82,7 @@ class ChatbotViewController: JSQMessagesViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.inputToolbar.contentView.leftBarButtonItem = nil
         self.tabBarController?.tabBar.isHidden = true
         
         self.senderId = currentUser.id
