@@ -553,7 +553,7 @@
                                 <rect key="frame" x="166" y="50" width="42" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -568,7 +568,7 @@
             </objects>
             <point key="canvasLocation" x="1141.5999999999999" y="895.50224887556226"/>
         </scene>
-        <!--MoomooBot-->
+        <!--Moomoo-->
         <scene sceneID="dVR-4N-Jhx">
             <objects>
                 <viewController id="8c0-q6-hmv" customClass="ChatbotViewController" customModule="moomood" customModuleProvider="target" sceneMemberID="viewController">
@@ -578,7 +578,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="GuX-UV-T5A"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MoomooBot" id="H0J-4u-Mg2">
+                    <navigationItem key="navigationItem" title="Moomoo" id="H0J-4u-Mg2">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Z5R-QF-eic">
                             <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
