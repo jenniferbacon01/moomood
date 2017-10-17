@@ -12,22 +12,29 @@ import RealmSwift
 class AnalysisViewController: UIViewController {
 
     @IBOutlet weak var happyOverviewMessage: UILabel!
+    @IBOutlet weak var sadOverviewMessage: UILabel!
     var happyMessage: String = ""
-    func setUpHappyOverview (){
+    var sadMessage: String = ""
+    
+    
+    func setUpOverviews (){
         let realm = try! Realm()
         let moods = realm.objects(Mood.self)
         print(moods)
         for i in (0..<moods.count){
             if moods[i].rating > 3 {
                 happyMessage.append(moods[i].moodDescription)
+            } else if moods[i].rating < 3 {
+                sadMessage.append(moods[i].moodDescription)
             }
         }
         happyOverviewMessage.text = happyMessage
+        sadOverviewMessage.text = sadMessage
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpHappyOverview()
+        self.setUpOverviews()
         // Do any additional setup after loading the view.
     }
 
