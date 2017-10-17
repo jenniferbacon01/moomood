@@ -115,7 +115,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         causeButtonMethod(cause: "Other")
     }
     @IBAction func ratherNotSayButton(_ sender: Any) {
-        causeButtonMethod(cause: "I'd rather not say")
+        causeButtonMethod(cause: "")
     }
     func causeButtonMethod(cause: String) {
         let unformattedDate = Date()
