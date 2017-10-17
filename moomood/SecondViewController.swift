@@ -120,7 +120,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     func causeButtonMethod(cause: String) {
         let unformattedDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat="dd MMM"
+        dateFormatter.dateFormat="yyyy-MM-dd"
         let formattedDate = dateFormatter.string(from: unformattedDate)
 //        mood = Mood(date:formattedDate,rating: number!, cause: cause)
 //        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
@@ -145,17 +145,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     // define a new function to save data to Realm
     func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
         // class Message
-        let moodDB = MoodDB()
-        moodDB.date = date
-        moodDB.rating = rating
-        moodDB.cause = cause
-        moodDB.moodDescription = moodDescription
-        moodDB.others = others
+        let mood = Mood()
+        mood.date = date
+        mood.rating = rating
+        mood.cause = cause
+        mood.moodDescription = moodDescription
+        mood.others = others
         
         // write to Realm
         let realm = try! Realm()
         try! realm.write {
-            realm.add(moodDB)
+            realm.add(mood)
         }
     }
     

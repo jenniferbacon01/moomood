@@ -27,7 +27,7 @@ class ChartViewController: UIViewController {
 //        }
 //
         let realm = try! Realm()
-        let moods = realm.objects(MoodDB.self)
+        let moods = realm.objects(Mood.self)
         print(moods)
 
         
@@ -135,7 +135,7 @@ class ChartViewController: UIViewController {
         
         
         let realm = try! Realm()
-        let moods = realm.objects(MoodDB.self)
+        let moods = realm.objects(Mood.self)
         var count1 : Int = 0
         var count2 : Int = 0
         var count3 : Int = 0
