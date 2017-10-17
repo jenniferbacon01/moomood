@@ -51,9 +51,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var table: UITableView!
     
     
-    
     override func viewDidAppear(_ animated: Bool) {
-        
+        print("HELLO")
         print(moods)
         
         table.reloadData()
@@ -71,12 +70,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func test(_ sender: Any) {
-        print(moods)
-    }
-    
-
     
 }
 

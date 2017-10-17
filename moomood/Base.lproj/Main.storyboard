@@ -89,12 +89,16 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Upc-mC-xlR" id="gZa-6c-56h"/>
+                                    <outlet property="delegate" destination="Upc-mC-xlR" id="sC5-9c-Nea"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="table" destination="rBl-Mo-sGf" id="kOH-yj-fg0"/>
+                        <outlet property="table" destination="rBl-Mo-sGf" id="VOr-bU-mT8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpJ-I9-bqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,7 +663,6 @@
         <image name="HeartEmpty" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dvq-Cv-ATs"/>
         <segue reference="FJW-Fu-nG7"/>
         <segue reference="EjJ-jA-AnB"/>
     </inferredMetricsTieBreakers>
