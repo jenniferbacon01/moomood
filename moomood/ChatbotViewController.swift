@@ -19,9 +19,11 @@ struct User {
 class ChatbotViewController: JSQMessagesViewController {
     
     // setting variables
+    let youtubeApiKey = "AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8"
+    var photoURL: String!
     var messages = [JSQMessage]()
     var user1 = User(id: "1", name: "You")
-    var user2 = User(id: "2", name: "moomooBot")
+    var user2 = User(id: "2", name: "Moomoo")
     var currentUser: User {
         return user1
     }
@@ -196,6 +198,7 @@ class ChatbotViewController: JSQMessagesViewController {
         var autoRating: Int!
         var mood: String!
         
+        
         let request = ApiAI.shared().textRequest()
         request?.query = message
         
@@ -246,7 +249,23 @@ class ChatbotViewController: JSQMessagesViewController {
             if newMood! != "" && newReason! != "" {
                 self.addMood(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
             }
+            
+            //handle youtube api
+            if let thisReason = (response.result.parameters as! Dictionary<String, AIResponseParameter>)["reason"], thisReason.stringValue != "" {
+                if apiAction == "recordGoodMood" {
+                    
+                self.handleSearchYouTubeWith(thisReason.stringValue)
+                print(thisReason.stringValue)
+                }
+                
+
+            }
+            
+            
         }
+            
+        
+            
             
         // print(newMood!)
         }
@@ -257,7 +276,53 @@ class ChatbotViewController: JSQMessagesViewController {
         ApiAI.shared().enqueue(request)
     }
 
+// define a new function to handle youtube search
+    func handleSearchYouTubeWith(_ reason: String){
+        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8&cx=002936525752981635088:zeicz7g3ytc&q=weird%20funny%20\(reason)%20meme&searchType=image"
+        
+        let targetURL = URL(string: urlString)
+        
+        performGetRequest(targetURL: targetURL!) { (data, HTTPStatusCode, error) in
+            if HTTPStatusCode == 200 && error == nil {
+                
+                do {
+                    let resultDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! Dictionary<String, AnyObject>
+                    let items = resultDictionary["items"] as! Array<Dictionary<String, AnyObject>>
+                    
+                    self.photoURL = items.first?["link"] as! String
+                    
+                    print(self.photoURL)
+                    
+                    self.sendPhotoToUser(self.photoURL)
+                    
+              
+                } catch {
+                    print(error)
+                }
+            }
+        }
 
+    }
+    
+    func performGetRequest(targetURL: URL, completion: @escaping (_ data: Data?, _ HTTPStatusCode: Int, _ error: Error?) -> Void){
+        
+        // build Request
+        var request = URLRequest(url: targetURL)
+        request.httpMethod = "GET"
+        
+        // session
+        let sessionConfiguration = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfiguration)
+        
+        //
+        let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            completion(data, (response as! HTTPURLResponse).statusCode, error)
+        }
+        task.resume()
+        
+    }
+    
 // define a new function to save data to Realm
     func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
     // class Message
@@ -288,14 +353,18 @@ class ChatbotViewController: JSQMessagesViewController {
         //store into JSQMessage array
         messages.append(botMessage!)
         
-        let rawPhotoURL = "https://static.pexels.com/photos/20787/pexels-photo.jpg"
-        sendPhotoToUser(rawPhotoURL)
+//        let rawPhotoURL = "https://lh3.googleusercontent.com/l6JAkhvfxbP61_FWN92j4ulDMXJNH3HT1DR6xrE7MtwW-2AxpZl_WLnBzTpWhCuYkbHihgBQ=w640-h400-e365"
+//        sendPhotoToUser(rawPhotoURL)
         
 //        let rawVideoURL = "https://www.youtube.com/watch?v=5dsGWM5XGdg"
 //        sendVideoToUser(rawVideoURL)
         
         //update UI
         finishSendingMessage()
+    }
+    
+    func handleSendUrl(_ urlString: String){
+        
     }
     
     func sendPhotoToUser(_ rawURL: String){
@@ -307,6 +376,9 @@ class ChatbotViewController: JSQMessagesViewController {
         
         // convert photo message to JSX format and add to JSXMessage array
         self.addPhotoMessage(_senderName: senderDisplayName, senderID: senderId, mediaItem: mediaItem!)
+        
+        finishSendingMessage()
+        
     }
     
     func sendVideoToUser(_ rawURL: String){
