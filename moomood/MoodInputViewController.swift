@@ -43,11 +43,6 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-//    func displayChosenMoodMessage(number: Int) {
-//        let messageString = "you chose "
-//        chosenMoodMessage.text = (messageString + String(number))
-//    }
-    
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -81,8 +76,8 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     func buttonMethod(number: Int) {
         moodInputViewDisplay.displayChosenMoodMessage(number: number, chosenMoodMessage: chosenMoodMessage )
         whyMessage.isHidden = false
-        moodInputViewDisplay.hideNumberButtons(numberButtons: [button1, button2, button3, button4, button5])
-        moodInputViewDisplay.showCauseButtons(causeButtons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
+        moodInputViewDisplay.hideButtons(buttons: [button1, button2, button3, button4, button5])
+        moodInputViewDisplay.showButtons(buttons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
     }
     
     
@@ -148,23 +143,7 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
             realm.add(mood)
         }
     }
-    
-    
-//    func hideNumberButtons(){
-//        button1.isHidden = true
-//        button2.isHidden = true
-//        button3.isHidden = true
-//        button4.isHidden = true
-//        button5.isHidden = true
-//    }
 
-//    func showNumberButtons(){
-//        button1.isHidden = false
-//        button2.isHidden = false
-//        button3.isHidden = false
-//        button4.isHidden = false
-//        button5.isHidden = false
-//    }
 
     @IBOutlet weak var workButton: UIButton!
     @IBOutlet weak var familyButton: UIButton!
@@ -175,70 +154,32 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weatherButton: UIButton!
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var preferNotToSayButton: UIButton!
-    
-//    func showCauseButtons(){
-//        workButton.isHidden = false
-//        familyButton.isHidden = false
-//        partnerButton.isHidden = false
-//        healthButton.isHidden = false
-//        homeButton.isHidden = false
-//        financesButton.isHidden = false
-//        weatherButton.isHidden = false
-//        otherButton.isHidden = false
-//        preferNotToSayButton.isHidden = false
-//    }
-
-//    func hideCauseButtons(){
-//        workButton.isHidden = true
-//        familyButton.isHidden = true
-//        partnerButton.isHidden = true
-//        healthButton.isHidden = true
-//        homeButton.isHidden = true
-//        financesButton.isHidden = true
-//        weatherButton.isHidden = true
-//        otherButton.isHidden = true
-//        preferNotToSayButton.isHidden = true
-//    }
 
     override func viewDidAppear(_ animated: Bool) {
         chosenMoodMessage.text = nil
         whyMessage.isHidden = true
-        moodInputViewDisplay.hideCauseButtons(causeButtons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
-        moodInputViewDisplay.showNumberButtons(numberButtons: [button1, button2, button3, button4, button5])
+        moodInputViewDisplay.hideButtons(buttons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
+        moodInputViewDisplay.showButtons(buttons: [button1, button2, button3, button4, button5])
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        button1.layer.cornerRadius = 10
-        button1.layer.masksToBounds = true
-        button1.setGradientBackground(colorOne: UIColor.black, colorTwo: UIColor.purple)
+        moodInputViewDisplay.formatButton(button: button1, colorOne: UIColor.black, colorTwo: UIColor.purple)
         
-        button2.layer.cornerRadius = 10
-        button2.layer.masksToBounds = true
-        button2.setGradientBackground(colorOne: UIColor.darkGray, colorTwo: UIColor.purple)
+        moodInputViewDisplay.formatButton(button: button2, colorOne: UIColor.darkGray, colorTwo: UIColor.purple)
         
-        button3.layer.cornerRadius = 10
-        button3.layer.masksToBounds = true
-        button3.setGradientBackground(colorOne: UIColor.gray, colorTwo: UIColor.purple)
+        moodInputViewDisplay.formatButton(button: button3, colorOne: UIColor.gray, colorTwo: UIColor.purple)
         
-        button4.layer.cornerRadius = 10
-        button4.layer.masksToBounds = true
-        button4.setGradientBackground(colorOne: UIColor.lightGray, colorTwo: UIColor.purple)
+        moodInputViewDisplay.formatButton(button: button4, colorOne: UIColor.lightGray, colorTwo: UIColor.purple)
         
-        button5.layer.cornerRadius = 10
-        button5.layer.masksToBounds = true
-        button5.setGradientBackground(colorOne: UIColor.white, colorTwo: UIColor.purple)
+        moodInputViewDisplay.formatButton(button: button5, colorOne: UIColor.white, colorTwo: UIColor.purple)
         
-        
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     

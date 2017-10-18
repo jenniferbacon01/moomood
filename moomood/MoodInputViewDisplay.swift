@@ -16,29 +16,22 @@ class MoodInputViewDisplay {
         chosenMoodMessage.text = (messageString + String(number))
     }
     
-    func hideNumberButtons(numberButtons: [UIButton]){
-        for i in (0..<numberButtons.count) {
-            numberButtons[i].isHidden = true
+    func hideButtons(buttons: [UIButton]){
+        for i in (0..<buttons.count) {
+            buttons[i].isHidden = true
         }
     }
     
-    func showNumberButtons(numberButtons: [UIButton]){
-        for i in (0..<numberButtons.count) {
-            numberButtons[i].isHidden = false
+    func showButtons(buttons: [UIButton]){
+        for i in (0..<buttons.count) {
+            buttons[i].isHidden = false
         }
     }
     
-    func showCauseButtons(causeButtons: [UIButton]) {
-        for i in (0..<causeButtons.count) {
-            causeButtons[i].isHidden = false
-        }
-    }
-    
-    
-    func hideCauseButtons(causeButtons: [UIButton]){
-        for i in (0..<causeButtons.count) {
-            causeButtons[i].isHidden = true
-        }
+    func formatButton(button: UIButton, colorOne: UIColor, colorTwo: UIColor){
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.setGradientBackground(colorOne: colorOne, colorTwo: colorTwo)
     }
     
     
