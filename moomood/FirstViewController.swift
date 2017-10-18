@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     var moods: Results<Mood>!
 //    var moodsWithDesc: [MoodDB] = []
