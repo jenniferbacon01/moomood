@@ -69,7 +69,7 @@ class ChatbotViewController: JSQMessagesViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
-        self.queryAllMessages()
+        self.queryAllMessagesFromRealm()
     }
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -89,21 +89,21 @@ class ChatbotViewController: JSQMessagesViewController {
         finishSendingMessage()
     }
     
-    // extract data from Realm
-    func queryAllMessages(){
+    func queryAllMessagesFromRealm(){
         let realm = try! Realm()
         let messages = realm.objects(ChatMessage.self)
-        // for every message saved in realm, append it to the JSQMessage array
         for message in messages {
             if message.senderMessage != ""{
                 let msg = JSQMessage(senderId: message.senderID, displayName: message.senderName, text: message.senderMessage)
                 self.messages.append(msg!)
             } else {
-                let mediamsg = JSQMessage(senderId: message.senderID, displayName: message.senderName, media: JSQPhotoMediaItem(image: UIImage(data: message.senderMedia!)))
+                let photo = JSQPhotoMediaItem(image: UIImage(data: message.senderMedia!))
+                let mediamsg = JSQMessage(senderId: message.senderID, displayName: message.senderName, media: photo)
+                photo?.appliesMediaViewMaskAsOutgoing = false
                 self.messages.append(mediamsg!)
             }
         }
-    }
+    }  
     
     // style formatting
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
@@ -187,7 +187,7 @@ class ChatbotViewController: JSQMessagesViewController {
                     autoRating = 3
                 }
                 if newMood! != "" && newReason! != "" {
-                    self.addMood(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
+                    self.addMoodToRealm(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
                 }
                 
                 //handle google api
@@ -236,8 +236,7 @@ class ChatbotViewController: JSQMessagesViewController {
         task.resume()
     }
     
-    // save mood data to Realm
-    func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
+    func addMoodToRealm(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
         let mood = Mood()
         mood.date = date
         mood.rating = rating
@@ -245,7 +244,6 @@ class ChatbotViewController: JSQMessagesViewController {
         mood.moodDescription = moodDescription
         mood.others = others
         
-        // write to Realm
         let realm = try! Realm()
         try! realm.write {
             realm.add(mood)
@@ -254,7 +252,6 @@ class ChatbotViewController: JSQMessagesViewController {
   
     // handle receiving message from chatbot's api
     func handleStoreBotMsg(_ botMsg: String){
-        // store message to local Realm
         saveMediaMessage(user2.name, senderID: user2.id, senderMessage: botMsg, senderMedia:nil)
         let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
         messages.append(botMessage!)
@@ -264,7 +261,7 @@ class ChatbotViewController: JSQMessagesViewController {
     func sendPhotoToUser(_ rawURL: String){
         //convert raw photo url into JSQPhotoMediaItem
         let url = URL(string: rawURL)
-        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        //make sure image in this url does exist, otherwise unwrap in a if let check / try-catch
         let data = try! Data(contentsOf: url! as URL) as Data!
         let mediaItem = JSQPhotoMediaItem(image: UIImage(data: data!))
         mediaItem?.appliesMediaViewMaskAsOutgoing = false
