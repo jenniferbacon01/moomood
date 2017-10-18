@@ -109,7 +109,6 @@ class ChatbotViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
         let messageUserName = message.senderDisplayName
-        
         return NSAttributedString(string: messageUserName!)
     }
     
@@ -124,7 +123,6 @@ class ChatbotViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         let message = messages[indexPath.row]
-        
         if currentUser.id == message.senderId {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: .lightGray)
         } else {
@@ -152,57 +150,53 @@ class ChatbotViewController: JSQMessagesViewController {
         
         // send request and receive response from chatbot api
         request?.setMappedCompletionBlockSuccess({ (request, response) in
-         
         //handle response from chatbot's api
         let response = response as! AIResponse
      
         if let responseFromAI = response.result.fulfillment.messages.first?["speech"] as? String {
-            
-        // store chat message to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
-        self.handleStoreBotMsg(responseFromAI)
-            
-        // store mood to local Realm depending on different responses from chatbot api
-        let apiAction = response.result.action
-        if apiAction == "recordGoodMood" || apiAction == "recordBadMood" || apiAction == "recordNeutralMood" {
-            if let parameters = response.result.parameters as? [String: AIResponseParameter]{
-                if apiAction == "recordGoodMood" {
-                    mood = parameters["feelings"]!.stringValue
-                } else if apiAction == "recordBadMood" {
-                    mood = parameters["bad_feelings"]!.stringValue
+            // store chat message to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
+            self.handleStoreBotMsg(responseFromAI)
+            // store mood to local Realm depending on different responses from chatbot api
+            let apiAction = response.result.action
+            if apiAction == "recordGoodMood" || apiAction == "recordBadMood" || apiAction == "recordNeutralMood" {
+                if let parameters = response.result.parameters as? [String: AIResponseParameter]{
+                    if apiAction == "recordGoodMood" {
+                        mood = parameters["feelings"]!.stringValue
+                    } else if apiAction == "recordBadMood" {
+                        mood = parameters["bad_feelings"]!.stringValue
+                    }
+                    let reason = parameters["reason"]!.stringValue
+                    let date = parameters["date"]!.stringValue
+                    newMood = mood?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
+                    newReason = reason?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
+                    newDate = date?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
                 }
-                let reason = parameters["reason"]!.stringValue
-                let date = parameters["date"]!.stringValue
-                newMood = mood?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
-                newReason = reason?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
-                newDate = date?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
-            }
-                    
-            //date formatter
-            let unformattedDate = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat="yyyy-MM-dd"
-            let formattedDate = dateFormatter.string(from: unformattedDate)
-            if newDate! == "today" {
-                newDate = formattedDate
-            }
-            if apiAction == "recordGoodMood" {
-                autoRating = 4
-            } else if (apiAction == "recordBadMood") {
-                autoRating = 2
-            } else if (apiAction == "recordNeutralMood") {
-                autoRating = 3
-            }
-            if newMood! != "" && newReason! != "" {
-                self.addMood(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
-            }
-            
-            //handle google api
-            if let thisReason = (response.result.parameters as! Dictionary<String, AIResponseParameter>)["reason"], thisReason.stringValue != "" {
+                
+                let unformattedDate = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat="yyyy-MM-dd"
+                let formattedDate = dateFormatter.string(from: unformattedDate)
+                if newDate! == "today" {
+                    newDate = formattedDate
+                }
                 if apiAction == "recordGoodMood" {
-                self.handleSearchYouTubeWith(thisReason.stringValue)
+                    autoRating = 4
+                } else if (apiAction == "recordBadMood") {
+                    autoRating = 2
+                } else if (apiAction == "recordNeutralMood") {
+                    autoRating = 3
+                }
+                if newMood! != "" && newReason! != "" {
+                    self.addMood(newDate!, rating: autoRating, cause: newReason!, moodDescription: newMood!, others: "")
+                }
+                
+                //handle google api
+                if let thisReason = (response.result.parameters as! Dictionary<String, AIResponseParameter>)["reason"], thisReason.stringValue != "" {
+                    if apiAction == "recordGoodMood" {
+                    self.handleGoogleCustomSearchWith(thisReason.stringValue)
+                    }
                 }
             }
-        }
         }
         }, failure: { (request, error) in
             print(error!)
@@ -211,8 +205,7 @@ class ChatbotViewController: JSQMessagesViewController {
         ApiAI.shared().enqueue(request)
     }
 
-    // define a new function to handle google meme search
-    func handleSearchYouTubeWith(_ reason: String){
+    func handleGoogleCustomSearchWith(_ reason: String){
         let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=weird%20funny%20\(reason)%20meme&searchType=image"
         let targetURL = URL(string: urlString)
         
@@ -243,7 +236,7 @@ class ChatbotViewController: JSQMessagesViewController {
         task.resume()
     }
     
-    // define a new function to save data to Realm
+    // save mood data to Realm
     func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
         let mood = Mood()
         mood.date = date
