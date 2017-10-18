@@ -11,7 +11,8 @@ struct User {
 class ChatbotViewController: JSQMessagesViewController {
     
     // setting variables
-    let youtubeApiKey = "AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8"
+    let googleApiKey = "AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8"
+    let customSearchEngineID = "002936525752981635088:zeicz7g3ytc"
     var photoURL: String!
     var messages = [JSQMessage]()
     var user1 = User(id: "1", name: "You")
@@ -254,7 +255,7 @@ class ChatbotViewController: JSQMessagesViewController {
 
 // define a new function to handle youtube search
     func handleSearchYouTubeWith(_ reason: String){
-        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8&cx=002936525752981635088:zeicz7g3ytc&q=weird%20funny%20\(reason)%20meme&searchType=image"
+        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=weird%20funny%20\(reason)%20meme&searchType=image"
         
         let targetURL = URL(string: urlString)
         
@@ -266,8 +267,6 @@ class ChatbotViewController: JSQMessagesViewController {
                     let items = resultDictionary["items"] as! Array<Dictionary<String, AnyObject>>
                     
                     self.photoURL = items.first?["link"] as! String
-                    
-                    print(self.photoURL)
                     
                     self.sendPhotoToUser(self.photoURL)
                 } catch {
