@@ -25,12 +25,10 @@ extension UIView {
 }
 
 
-class SecondViewController: UIViewController, UITextFieldDelegate {
-    
+class MoodInputViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var chosenMoodMessage: UILabel!
     @IBOutlet weak var whyMessage: UILabel!
-//    var mood: Mood?
     var number: Int?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -122,20 +120,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat="yyyy-MM-dd"
         let formattedDate = dateFormatter.string(from: unformattedDate)
-//        mood = Mood(date:formattedDate,rating: number!, cause: cause)
-//        let moodsObject = NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path)
-//        var moods: [Mood]
-//        if let tempmoods = moodsObject as? [Mood] {
-//            moods = tempmoods
-//            moods.append(mood!)
-//        } else {
-//            moods = [mood!]
-//        }
-//        print(mood!.cause)
-//        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
-        
         addMood(formattedDate, rating: number!, cause: cause, moodDescription: "", others: "")
-        
         performSegue(withIdentifier: "goToChat", sender: nil)
     }
     
@@ -250,16 +235,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    private func saveMoods() {
-//        
-//        NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
-//        
-//    }
-    
-//    private func loadMoods() -> [Mood]? {
-//        return NSKeyedUnarchiver.unarchiveObject(withFile: Mood.ArchiveURL.path) as? [Mood]
-//    }
-    
+
     
 }
