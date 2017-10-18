@@ -636,16 +636,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7R3-9O-XeA">
-                                <rect key="frame" x="0.0" y="169" width="375" height="306"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7R3-9O-XeA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpM-I8-hrJ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Save" id="5A4-VB-th8">
+                                        <connections>
+                                            <action selector="saveToLibrary:" destination="K7f-7y-TjU" id="CCO-kk-Pv2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7R3-9O-XeA" firstAttribute="leading" secondItem="BKB-ji-2Rg" secondAttribute="leading" id="ZvJ-tg-CmG"/>
+                            <constraint firstItem="WnI-px-ogh" firstAttribute="top" secondItem="7R3-9O-XeA" secondAttribute="bottom" id="bt4-hq-LeK"/>
+                            <constraint firstItem="7R3-9O-XeA" firstAttribute="top" secondItem="j5w-vc-7xh" secondAttribute="bottom" id="dbQ-bp-qY1"/>
+                            <constraint firstAttribute="trailing" secondItem="7R3-9O-XeA" secondAttribute="trailing" id="iqa-wd-upN"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="7R3-9O-XeA" id="D0s-V5-Sjb"/>
+                        <outlet property="imageView" destination="7R3-9O-XeA" id="SAf-FX-oAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyc-6z-Xuy" userLabel="First Responder" sceneMemberID="firstResponder"/>

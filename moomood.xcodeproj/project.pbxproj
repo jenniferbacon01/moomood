@@ -14,7 +14,7 @@
 		D979BE191F8E70F6002A4AC5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */; };
 		D979BE1B1F8FFBBA002A4AC5 /* ChatbotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */; };
 		D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */; };
-		D9D8945C1F96121200ED5A54 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D8945B1F96121200ED5A54 /* Message.swift */; };
+		D9D894601F979CD500ED5A54 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D8945F1F979CD500ED5A54 /* ChatMessage.swift */; };
 		E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */; };
 		E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */; };
 		E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */; };
@@ -57,7 +57,7 @@
 		D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewController.swift; sourceTree = "<group>"; };
 		D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMediaViewController.swift; sourceTree = "<group>"; };
-		D9D8945B1F96121200ED5A54 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D9D8945F1F979CD500ED5A54 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		DED0BC4C07FE369F9AC2EF0A /* Pods_moomoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C41F8E211400BD5531 /* moomood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moomood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */,
 				D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */,
 				D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */,
-				D9D8945B1F96121200ED5A54 /* Message.swift */,
+				D9D8945F1F979CD500ED5A54 /* ChatMessage.swift */,
 				D9374CC51F93C92000FA0481 /* Mood.swift */,
 				E6C6C9D01F8E211400BD5531 /* Assets.xcassets */,
 				E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */,
@@ -489,11 +489,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9D8945C1F96121200ED5A54 /* Message.swift in Sources */,
 				D979BE1B1F8FFBBA002A4AC5 /* ChatbotViewController.swift in Sources */,
 				E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */,
 				E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */,
 				D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */,
+				D9D894601F979CD500ED5A54 /* ChatMessage.swift in Sources */,
 				A9E1FD921F96383500660F71 /* AnalysisViewController.swift in Sources */,
 				E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */,
 				D9374CC61F93C92100FA0481 /* Mood.swift in Sources */,
