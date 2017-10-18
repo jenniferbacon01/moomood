@@ -35,20 +35,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yj-Ry-qoG">
-                                <rect key="frame" x="16" y="495" width="343" height="134"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Sad">
-                                        <attributes>
-                                            <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxe-Dm-juS">
                                 <rect key="frame" x="151" y="217" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,6 +87,20 @@
                                     <fragment content="You have recorded the following moods....">
                                         <attributes>
                                             <font key="NSFont" size="18" name="AvenirNext-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yj-Ry-qoG">
+                                <rect key="frame" x="16" y="486" width="343" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sad">
+                                        <attributes>
+                                            <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -182,7 +182,7 @@
                                 <rect key="frame" x="129" y="64" width="116" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Journal">
+                                    <fragment content="History">
                                         <attributes>
                                             <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="28" name="AvenirNext-UltraLight"/>
@@ -196,6 +196,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="sOA-ky-6qx" id="XsC-Zg-69T"/>
                         <outlet property="table" destination="rBl-Mo-sGf" id="VOr-bU-mT8"/>
                     </connections>
                 </viewController>
@@ -501,8 +502,25 @@
                                     <action selector="ratherNotSayButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="GKD-Wg-kRc"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-RZ-Zmk">
+                                <rect key="frame" x="204" y="380" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Weather">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="AvenirNext-UltraLight"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="weatherButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="UpH-Nm-gf7"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Yx-Ww3">
-                                <rect key="frame" x="157" y="171" width="60" height="60"/>
+                                <rect key="frame" x="157" y="166" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="5">
@@ -523,23 +541,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="button5:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hya-7m-IUJ"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-RZ-Zmk">
-                                <rect key="frame" x="204" y="380" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Weather">
-                                            <attributes>
-                                                <color key="NSColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="15" name="AvenirNext-UltraLight"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="weatherButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="UpH-Nm-gf7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -585,20 +586,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIC-7H-Ci7" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="10" y="348" width="365" height="250"/>
+                                <rect key="frame" x="10" y="348" width="349" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-Sy-cMS" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="10" y="82" width="365" height="250"/>
+                                <rect key="frame" x="10" y="82" width="349" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-qD-iHd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6f-qD-iHd">
                                 <rect key="frame" x="136" y="41" width="102" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="RiW-JL-QsL"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Charts">
                                         <attributes>
@@ -612,12 +611,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="p6f-qD-iHd" secondAttribute="trailing" constant="20" id="GBQ-Ia-qub"/>
-                            <constraint firstItem="p6f-qD-iHd" firstAttribute="centerX" secondItem="Wuy-uF-hFg" secondAttribute="centerX" id="bRf-9Y-yDH"/>
-                            <constraint firstItem="p6f-qD-iHd" firstAttribute="leading" secondItem="Wuy-uF-hFg" secondAttribute="leading" constant="20" id="hu4-PS-rgc"/>
-                            <constraint firstItem="p6f-qD-iHd" firstAttribute="top" secondItem="dhs-Vq-P6a" secondAttribute="bottom" id="xQo-Xz-Iwr"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Charts" image="Chart" id="Idu-qo-mwa">
                         <color key="badgeColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
@@ -643,16 +636,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7R3-9O-XeA">
-                                <rect key="frame" x="0.0" y="169" width="375" height="306"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7R3-9O-XeA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpM-I8-hrJ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Save" id="5A4-VB-th8">
+                                        <connections>
+                                            <action selector="saveToLibrary:" destination="K7f-7y-TjU" id="CCO-kk-Pv2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7R3-9O-XeA" firstAttribute="leading" secondItem="BKB-ji-2Rg" secondAttribute="leading" id="ZvJ-tg-CmG"/>
+                            <constraint firstItem="WnI-px-ogh" firstAttribute="top" secondItem="7R3-9O-XeA" secondAttribute="bottom" id="bt4-hq-LeK"/>
+                            <constraint firstItem="7R3-9O-XeA" firstAttribute="top" secondItem="j5w-vc-7xh" secondAttribute="bottom" id="dbQ-bp-qY1"/>
+                            <constraint firstAttribute="trailing" secondItem="7R3-9O-XeA" secondAttribute="trailing" id="iqa-wd-upN"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="7R3-9O-XeA" id="D0s-V5-Sjb"/>
+                        <outlet property="imageView" destination="7R3-9O-XeA" id="SAf-FX-oAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyc-6z-Xuy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -758,4 +767,5 @@
         <segue reference="FJW-Fu-nG7"/>
         <segue reference="EjJ-jA-AnB"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
 </document>
