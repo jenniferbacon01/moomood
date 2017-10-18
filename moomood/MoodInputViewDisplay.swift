@@ -1,11 +1,3 @@
-//
-//  MoodInputViewDisplay.swift
-//  moomood
-//
-//  Created by Jennifer Bacon on 18/10/2017.
-//  Copyright © 2017 Jennifer Bacon. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

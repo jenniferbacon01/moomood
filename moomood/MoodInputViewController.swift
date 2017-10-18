@@ -1,11 +1,3 @@
-//
-//  SecondViewController.swift
-//  moomood
-//
-//  Created by Jennifer Bacon on 11/10/2017.
-//  Copyright © 2017 Jennifer Bacon. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 
@@ -143,7 +135,6 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
             realm.add(mood)
         }
     }
-
 
     @IBOutlet weak var workButton: UIButton!
     @IBOutlet weak var familyButton: UIButton!
