@@ -183,7 +183,6 @@ class ChatbotViewController: JSQMessagesViewController {
         var autoRating: Int!
         var mood: String!
         
-        
         let request = ApiAI.shared().textRequest()
         request?.query = message
         
