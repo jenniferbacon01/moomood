@@ -554,7 +554,7 @@
                         <outlet property="button3" destination="Ggz-xW-1sQ" id="HaF-Uo-QRy"/>
                         <outlet property="button4" destination="KMr-hC-1Ey" id="ycJ-f1-sjf"/>
                         <outlet property="button5" destination="DPd-Yx-Ww3" id="SbN-mF-xsa"/>
-                        <outlet property="chosenMoodMessage" destination="3KO-TK-Y8u" id="Hho-6P-Kij"/>
+                        <outlet property="chosenMoodMessage" destination="3KO-TK-Y8u" id="Nk7-dF-23z"/>
                         <outlet property="familyButton" destination="2CY-az-7IT" id="pUT-C5-z62"/>
                         <outlet property="financesButton" destination="hgL-hJ-udp" id="XDN-Hs-lMG"/>
                         <outlet property="healthButton" destination="Tz3-IO-cMh" id="Pzi-XO-qxn"/>

@@ -15,6 +15,7 @@
 		D979BE1B1F8FFBBA002A4AC5 /* ChatbotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */; };
 		D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */; };
 		D9D8945C1F96121200ED5A54 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D8945B1F96121200ED5A54 /* Message.swift */; };
+		E6AAD52F1F9791840073D8E5 /* MoodInputViewDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AAD52E1F9791840073D8E5 /* MoodInputViewDisplay.swift */; };
 		E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */; };
 		E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */; };
 		E6C6C9CC1F8E211400BD5531 /* MoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9CB1F8E211400BD5531 /* MoodInputViewController.swift */; };
@@ -59,6 +60,7 @@
 		D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMediaViewController.swift; sourceTree = "<group>"; };
 		D9D8945B1F96121200ED5A54 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		DED0BC4C07FE369F9AC2EF0A /* Pods_moomoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6AAD52E1F9791840073D8E5 /* MoodInputViewDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodInputViewDisplay.swift; sourceTree = "<group>"; };
 		E6C6C9C41F8E211400BD5531 /* moomood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moomood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */,
 				E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */,
 				E6C6C9CB1F8E211400BD5531 /* MoodInputViewController.swift */,
+				E6AAD52E1F9791840073D8E5 /* MoodInputViewDisplay.swift */,
 				E6C6C9CD1F8E211400BD5531 /* Main.storyboard */,
 				D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */,
 				D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */,
@@ -498,6 +501,7 @@
 				E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */,
 				D9374CC61F93C92100FA0481 /* Mood.swift in Sources */,
 				D979BE191F8E70F6002A4AC5 /* ChartViewController.swift in Sources */,
+				E6AAD52F1F9791840073D8E5 /* MoodInputViewDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

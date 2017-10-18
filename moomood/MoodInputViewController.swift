@@ -27,6 +27,7 @@ extension UIView {
 
 class MoodInputViewController: UIViewController, UITextFieldDelegate {
     
+    var moodInputViewDisplay: MoodInputViewDisplay = MoodInputViewDisplay()
     @IBOutlet weak var chosenMoodMessage: UILabel!
     @IBOutlet weak var whyMessage: UILabel!
     var number: Int?
@@ -42,11 +43,18 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+//    func displayChosenMoodMessage(number: Int) {
+//        let messageString = "you chose "
+//        chosenMoodMessage.text = (messageString + String(number))
+//    }
+    
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var button5: UIButton!
+    
+//    var numberButtons = [button1, button2, button3, button4, button5]
     
     @IBAction func button1(_ sender: Any) {
         number = 1
@@ -71,16 +79,13 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         buttonMethod(number: number!)
     }
     func buttonMethod(number: Int) {
-        displayChosenMoodMessage(number: number)
+        moodInputViewDisplay.displayChosenMoodMessage(number: number, chosenMoodMessage: chosenMoodMessage )
         whyMessage.isHidden = false
-        hideNumberButtons()
-        showCauseButtons()
+        moodInputViewDisplay.hideNumberButtons(numberButtons: [button1, button2, button3, button4, button5])
+        moodInputViewDisplay.showCauseButtons(causeButtons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
     }
     
-    func displayChosenMoodMessage(number: Int) {
-        let messageString = "you chose "
-        chosenMoodMessage.text = (messageString + String(number))
-    }
+    
     
     @IBAction func workButton(_ sender: Any) {
         causeButtonMethod(cause: "Work")
@@ -145,21 +150,21 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func hideNumberButtons(){
-        button1.isHidden = true
-        button2.isHidden = true
-        button3.isHidden = true
-        button4.isHidden = true
-        button5.isHidden = true
-    }
+//    func hideNumberButtons(){
+//        button1.isHidden = true
+//        button2.isHidden = true
+//        button3.isHidden = true
+//        button4.isHidden = true
+//        button5.isHidden = true
+//    }
 
-    func showNumberButtons(){
-        button1.isHidden = false
-        button2.isHidden = false
-        button3.isHidden = false
-        button4.isHidden = false
-        button5.isHidden = false
-    }
+//    func showNumberButtons(){
+//        button1.isHidden = false
+//        button2.isHidden = false
+//        button3.isHidden = false
+//        button4.isHidden = false
+//        button5.isHidden = false
+//    }
 
     @IBOutlet weak var workButton: UIButton!
     @IBOutlet weak var familyButton: UIButton!
@@ -171,35 +176,35 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var preferNotToSayButton: UIButton!
     
-    func showCauseButtons(){
-        workButton.isHidden = false
-        familyButton.isHidden = false
-        partnerButton.isHidden = false
-        healthButton.isHidden = false
-        homeButton.isHidden = false
-        financesButton.isHidden = false
-        weatherButton.isHidden = false
-        otherButton.isHidden = false
-        preferNotToSayButton.isHidden = false
-    }
+//    func showCauseButtons(){
+//        workButton.isHidden = false
+//        familyButton.isHidden = false
+//        partnerButton.isHidden = false
+//        healthButton.isHidden = false
+//        homeButton.isHidden = false
+//        financesButton.isHidden = false
+//        weatherButton.isHidden = false
+//        otherButton.isHidden = false
+//        preferNotToSayButton.isHidden = false
+//    }
 
-    func hideCauseButtons(){
-        workButton.isHidden = true
-        familyButton.isHidden = true
-        partnerButton.isHidden = true
-        healthButton.isHidden = true
-        homeButton.isHidden = true
-        financesButton.isHidden = true
-        weatherButton.isHidden = true
-        otherButton.isHidden = true
-        preferNotToSayButton.isHidden = true
-    }
+//    func hideCauseButtons(){
+//        workButton.isHidden = true
+//        familyButton.isHidden = true
+//        partnerButton.isHidden = true
+//        healthButton.isHidden = true
+//        homeButton.isHidden = true
+//        financesButton.isHidden = true
+//        weatherButton.isHidden = true
+//        otherButton.isHidden = true
+//        preferNotToSayButton.isHidden = true
+//    }
 
     override func viewDidAppear(_ animated: Bool) {
         chosenMoodMessage.text = nil
         whyMessage.isHidden = true
-        hideCauseButtons()
-        showNumberButtons()
+        moodInputViewDisplay.hideCauseButtons(causeButtons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
+        moodInputViewDisplay.showNumberButtons(numberButtons: [button1, button2, button3, button4, button5])
     }
     
     
