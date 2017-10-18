@@ -115,7 +115,7 @@ class ChartViewController: UIViewController {
         
         let frequency: [Int] = [count1, count2, count3, count4, count5]
         var barChartEntry = [BarChartDataEntry]()
-            
+        
         for i in (0..<frequency.count){
             let value = BarChartDataEntry(x: Double(i)+1, y: Double(frequency[i]))
             barChartEntry.append(value)
@@ -124,7 +124,6 @@ class ChartViewController: UIViewController {
         let frequencyBar = BarChartDataSet(values: barChartEntry, label: "Frequency")
         formatBarChart(frequencyBar: frequencyBar)
         barChartData(frequencyBar: frequencyBar)
-        barChart.xAxis.axisMaximum = Double(barChartEntry.count) - 0.5;
     }
     
     func barChartData(frequencyBar: BarChartDataSet){
@@ -176,7 +175,7 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
