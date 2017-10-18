@@ -2,7 +2,6 @@ import UIKit
 
 class ShowMediaViewController: UIViewController {
     var image: UIImage? = nil
-    var titreText: String!
     
     @IBOutlet weak var imageView: UIImageView!
   
