@@ -9,8 +9,6 @@ struct User {
 }
 
 class ChatbotViewController: JSQMessagesViewController {
-    
-    // setting variables
     let googleApiKey = "AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8"
     let customSearchEngineID = "002936525752981635088:zeicz7g3ytc"
     var selectedImage: UIImage?
@@ -37,7 +35,6 @@ class ChatbotViewController: JSQMessagesViewController {
             let mediaItem = message.media
             if mediaItem is JSQPhotoMediaItem {
                 let photoItem = mediaItem as! JSQPhotoMediaItem
-                
                 if let test: UIImage = photoItem.image {
                     let image = test
                     return image
@@ -84,38 +81,18 @@ class ChatbotViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
-        
         print("Date : \(date)")
-        
-        // store message into Realm
-        self.addMessage(senderDisplayName, senderID: senderId, senderMessage: text)
-
-        // store message into JSXMessage array
+        self.saveMediaMessage(senderDisplayName, senderID: senderId, senderMessage: text, senderMedia:nil)
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text!)
-        
         messages.append(message!)
         handleSendMessageToBot(text)
         finishSendingMessage()
     }
     
-    // define a new function to save data to Realm
-    func addMessage(_ senderName: String, senderID: String, senderMessage: String) {
-        let chatMessage = ChatMessage()
-        chatMessage.senderID = senderID
-        chatMessage.senderName = senderName
-        chatMessage.senderMessage = senderMessage
-        
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(chatMessage)
-        }
-    }
-    
-    // define a new function to extract data from Realm
+    // extract data from Realm
     func queryAllMessages(){
         let realm = try! Realm()
         let messages = realm.objects(ChatMessage.self)
-        
         // for every message saved in realm, append it to the JSQMessage array
         for message in messages {
             if message.senderMessage != ""{
@@ -128,7 +105,6 @@ class ChatbotViewController: JSQMessagesViewController {
         }
     }
     
-
     // style formatting
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
@@ -171,7 +147,6 @@ class ChatbotViewController: JSQMessagesViewController {
         var newDate: String!
         var autoRating: Int!
         var mood: String!
-        
         let request = ApiAI.shared().textRequest()
         request?.query = message
         
@@ -183,12 +158,11 @@ class ChatbotViewController: JSQMessagesViewController {
      
         if let responseFromAI = response.result.fulfillment.messages.first?["speech"] as? String {
             
-        // store response message to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
+        // store chat message to local Realm, convert to JSQMessage, store into JSQMessage array, update UI
         self.handleStoreBotMsg(responseFromAI)
             
-        // import response paramaters into Realm
+        // store mood to local Realm depending on different responses from chatbot api
         let apiAction = response.result.action
-            
         if apiAction == "recordGoodMood" || apiAction == "recordBadMood" || apiAction == "recordNeutralMood" {
             if let parameters = response.result.parameters as? [String: AIResponseParameter]{
                 if apiAction == "recordGoodMood" {
@@ -198,7 +172,6 @@ class ChatbotViewController: JSQMessagesViewController {
                 }
                 let reason = parameters["reason"]!.stringValue
                 let date = parameters["date"]!.stringValue
-                
                 newMood = mood?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
                 newReason = reason?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
                 newDate = date?.replacingOccurrences(of: "[\n() ]", with: "", options: .regularExpression, range: nil)
@@ -226,9 +199,7 @@ class ChatbotViewController: JSQMessagesViewController {
             //handle google api
             if let thisReason = (response.result.parameters as! Dictionary<String, AIResponseParameter>)["reason"], thisReason.stringValue != "" {
                 if apiAction == "recordGoodMood" {
-                    
                 self.handleSearchYouTubeWith(thisReason.stringValue)
-                print(thisReason.stringValue)
                 }
             }
         }
@@ -240,15 +211,13 @@ class ChatbotViewController: JSQMessagesViewController {
         ApiAI.shared().enqueue(request)
     }
 
-// define a new function to handle google meme search
+    // define a new function to handle google meme search
     func handleSearchYouTubeWith(_ reason: String){
         let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=weird%20funny%20\(reason)%20meme&searchType=image"
-        
         let targetURL = URL(string: urlString)
         
         performGetRequest(targetURL: targetURL!) { (data, HTTPStatusCode, error) in
             if HTTPStatusCode == 200 && error == nil {
-                
                 do {
                     let resultDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! Dictionary<String, AnyObject>
                     let items = resultDictionary["items"] as! Array<Dictionary<String, AnyObject>>
@@ -262,15 +231,12 @@ class ChatbotViewController: JSQMessagesViewController {
     }
     
     func performGetRequest(targetURL: URL, completion: @escaping (_ data: Data?, _ HTTPStatusCode: Int, _ error: Error?) -> Void){
-        
         // build Request
         var request = URLRequest(url: targetURL)
         request.httpMethod = "GET"
-        
         // session
         let sessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfiguration)
-        
         let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             completion(data, (response as! HTTPURLResponse).statusCode, error)
         }
@@ -296,7 +262,7 @@ class ChatbotViewController: JSQMessagesViewController {
     // handle receiving message from chatbot's api
     func handleStoreBotMsg(_ botMsg: String){
         // store message to local Realm
-        addMessage(user2.name, senderID: user2.id, senderMessage: botMsg)
+        saveMediaMessage(user2.name, senderID: user2.id, senderMessage: botMsg, senderMedia:nil)
         let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
         messages.append(botMessage!)
         finishSendingMessage()
@@ -309,28 +275,14 @@ class ChatbotViewController: JSQMessagesViewController {
         let data = try! Data(contentsOf: url! as URL) as Data!
         let mediaItem = JSQPhotoMediaItem(image: UIImage(data: data!))
         mediaItem?.appliesMediaViewMaskAsOutgoing = false
-        
-        // convert photo message to JSX format and add to JSXMessage array
-        self.addPhotoMessage(_senderName: senderDisplayName, senderID: user2.id, mediaItem: mediaItem!)
-        
+        self.appendToJSQ(_senderName: senderDisplayName, senderID: user2.id, mediaItem: mediaItem!)
         self.saveMediaMessage(senderDisplayName, senderID: user2.id, senderMessage: "", senderMedia: data!)
-        
         finishSendingMessage()
     }
     
-    func readApiAction(_ botAction: String){
-        if (botAction == "recordThisMood") {
-            print("please record")
-        } else {
-            print("please do not record")
-        }
-    }
-    
-    // convert photo message to JSX format and add to JSXMessage array
-    func addPhotoMessage(_senderName: String, senderID: String, mediaItem: JSQPhotoMediaItem) {
+    func appendToJSQ(_senderName: String, senderID: String, mediaItem: JSQPhotoMediaItem) {
         if let message = JSQMessage(senderId: user2.id, displayName: user2.name, media: mediaItem) {
             messages.append(message)
-            
             if (mediaItem.image == nil) {
                 //photoMessageMap[key] = mediaItem
             }
@@ -338,8 +290,7 @@ class ChatbotViewController: JSQMessagesViewController {
         }
     }
     
-    // save photo message to Realm
-    func saveMediaMessage(_ senderName: String, senderID: String, senderMessage: String, senderMedia: Data) {
+    func saveMediaMessage(_ senderName: String, senderID: String, senderMessage: String, senderMedia: Data?) {
         let chatMessage = ChatMessage()
         chatMessage.senderID = senderID
         chatMessage.senderName = senderName
@@ -351,7 +302,6 @@ class ChatbotViewController: JSQMessagesViewController {
             realm.add(chatMessage)
         }
     }
-
 }
 
 
