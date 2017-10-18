@@ -100,21 +100,21 @@ class ChatbotViewController: JSQMessagesViewController {
     
     // define a new function to save data to Realm
     func addMessage(_ senderName: String, senderID: String, senderMessage: String) {
-        let mediaMessage = MediaMessage()
-        mediaMessage.senderID = senderID
-        mediaMessage.senderName = senderName
-        mediaMessage.senderMessage = senderMessage
+        let chatMessage = ChatMessage()
+        chatMessage.senderID = senderID
+        chatMessage.senderName = senderName
+        chatMessage.senderMessage = senderMessage
         
         let realm = try! Realm()
         try! realm.write {
-            realm.add(mediaMessage)
+            realm.add(chatMessage)
         }
     }
     
     // define a new function to extract data from Realm
     func queryAllMessages(){
         let realm = try! Realm()
-        let messages = realm.objects(MediaMessage.self)
+        let messages = realm.objects(ChatMessage.self)
         
         // for every message saved in realm, append it to the JSQMessage array
         for message in messages {
@@ -125,14 +125,10 @@ class ChatbotViewController: JSQMessagesViewController {
                 let mediamsg = JSQMessage(senderId: message.senderID, displayName: message.senderName, media: JSQPhotoMediaItem(image: UIImage(data: message.senderMedia!)))
                 self.messages.append(mediamsg!)
             }
-       
         }
     }
     
-    
-    
-    
-    
+
     // style formatting
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
@@ -315,9 +311,9 @@ class ChatbotViewController: JSQMessagesViewController {
         mediaItem?.appliesMediaViewMaskAsOutgoing = false
         
         // convert photo message to JSX format and add to JSXMessage array
-        self.addPhotoMessage(_senderName: senderDisplayName, senderID: senderId, mediaItem: mediaItem!)
+        self.addPhotoMessage(_senderName: senderDisplayName, senderID: user2.id, mediaItem: mediaItem!)
         
-        self.saveMediaMessage(senderDisplayName, senderID: senderId, senderMessage: "", senderMedia: data!)
+        self.saveMediaMessage(senderDisplayName, senderID: user2.id, senderMessage: "", senderMedia: data!)
         
         finishSendingMessage()
     }
@@ -344,15 +340,15 @@ class ChatbotViewController: JSQMessagesViewController {
     
     // save photo message to Realm
     func saveMediaMessage(_ senderName: String, senderID: String, senderMessage: String, senderMedia: Data) {
-        let mediaMessage = MediaMessage()
-        mediaMessage.senderID = senderID
-        mediaMessage.senderName = senderName
-        mediaMessage.senderMessage = senderMessage
-        mediaMessage.senderMedia = senderMedia
+        let chatMessage = ChatMessage()
+        chatMessage.senderID = senderID
+        chatMessage.senderName = senderName
+        chatMessage.senderMessage = senderMessage
+        chatMessage.senderMedia = senderMedia
         
         let realm = try! Realm()
         try! realm.write {
-            realm.add(mediaMessage)
+            realm.add(chatMessage)
         }
     }
 
