@@ -1,11 +1,3 @@
-//
-//  ChatbotViewController.swift
-//  moomood
-//
-//  Created by Elizabeth Chan on 12/10/2017.
-//  Copyright © 2017 Jennifer Bacon. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 import JSQMessagesViewController
@@ -53,7 +45,6 @@ class ChatbotViewController: JSQMessagesViewController {
 //                let videoItem = mediaItem as! JSQVideoMediaItem
 //                let videoURL = videoItem.fileURL
 //            }
-            
         }
         return nil
     }
@@ -82,7 +73,6 @@ class ChatbotViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         self.inputToolbar.contentView.leftBarButtonItem = nil
         self.tabBarController?.tabBar.isHidden = true
@@ -91,7 +81,6 @@ class ChatbotViewController: JSQMessagesViewController {
         self.senderDisplayName = currentUser.name
         
         self.queryAllMessages()
-        
     }
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -102,7 +91,6 @@ class ChatbotViewController: JSQMessagesViewController {
             
             self.didPressSend(nil, withMessageText: self.keyboardController.textView?.text, senderId: user1.id, senderDisplayName: user1.name, date: Date())
         }
-        
         return true
     }
     
@@ -113,15 +101,12 @@ class ChatbotViewController: JSQMessagesViewController {
         
         // store message into Realm
         self.addMessage(senderDisplayName, senderID: senderId, senderMessage: text)
-        
 
         // store message into JSXMessage array
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text!)
         
         messages.append(message!)
-        
         handleSendMessageToBot(text)
-        
         finishSendingMessage()
     }
     
@@ -257,17 +242,9 @@ class ChatbotViewController: JSQMessagesViewController {
                 self.handleSearchYouTubeWith(thisReason.stringValue)
                 print(thisReason.stringValue)
                 }
-                
-
             }
-            
-            
         }
-            
-        
-            
-            
-        // print(newMood!)
+
         }
         }, failure: { (request, error) in
             print(error!)
@@ -294,14 +271,11 @@ class ChatbotViewController: JSQMessagesViewController {
                     print(self.photoURL)
                     
                     self.sendPhotoToUser(self.photoURL)
-                    
-              
                 } catch {
                     print(error)
                 }
             }
         }
-
     }
     
     func performGetRequest(targetURL: URL, completion: @escaping (_ data: Data?, _ HTTPStatusCode: Int, _ error: Error?) -> Void){
@@ -314,13 +288,11 @@ class ChatbotViewController: JSQMessagesViewController {
         let sessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfiguration)
         
-        //
         let task = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
             completion(data, (response as! HTTPURLResponse).statusCode, error)
         }
         task.resume()
-        
     }
     
 // define a new function to save data to Realm
@@ -333,7 +305,6 @@ class ChatbotViewController: JSQMessagesViewController {
     mood.moodDescription = moodDescription
     mood.others = others
         
-    
     // write to Realm
     let realm = try! Realm()
     try! realm.write {
@@ -378,7 +349,6 @@ class ChatbotViewController: JSQMessagesViewController {
         self.addPhotoMessage(_senderName: senderDisplayName, senderID: senderId, mediaItem: mediaItem!)
         
         finishSendingMessage()
-        
     }
     
     func sendVideoToUser(_ rawURL: String){
@@ -416,138 +386,9 @@ class ChatbotViewController: JSQMessagesViewController {
     func addVideoMessage(_senderName: String, senderID: String, mediaItem: JSQVideoMediaItem) {
         if let message = JSQMessage(senderId: user2.id, displayName: user2.name, media: mediaItem) {
             messages.append(message)
-
             collectionView.reloadData()
         }
     }
-    
-   
 }
-
-//if message.isMediaMessage {
-//    if message.media.isKind(of: JSQPhotoMediaItem.self) {
-//        //Handle image
-//        let mediaItem = message.media
-//        let photoItem = mediaItem as! JSQPhotoMediaItem
-//        if let test: UIImage = photoItem.image {
-//            let image = test
-//            return image
-//        }
-//
-//    } else if message.media.isKind(of: JSQVideoMediaItem.self) {
-//        let video = message.media as! JSQVideoMediaItem
-//        let videoURL = video.fileURL
-//    }
-//}
-
-
-//var photoMessageMap = [String: JSQPhotoMediaItem]()
-//
-//let photoItem = JSQPhotoMediaItem(image: UIImage(named: "goldengate"))
-//let photoItem = JSQPhotoMediaItem(image: UIImage(data: data!))
-//let photoMessage = JSQMessage(senderId: AvatarIdWoz, displayName: getName(User.Wozniak), media: photoItem)
-//
-//self.addMedia(photoItem)
-//
-//func addMedia(_ media:JSQMediaItem, senderName: String, senderID: String) {
-//    let message = JSQMessage(senderId: senderID, displayName: senderName, media: media)
-//    messages.append(message!)
-//
-//    //Optional: play sent sound
-//
-//    finishSendingMessage(animated: true)
-//}
-
-
-
-//NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:entity.image.imageUrl]];
-//UIImage *imageFromUrl = [UIImage imageWithData:data];
-//JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:imageFromUrl];
-//JSQMessage *photoMessage = [[JSQMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:entity.messageDate media:photoItem];
-
-
-//              print(response.result.parameters)
-//                print(response.result.parameters["mood"])
-//                print((response.result.parameters as? NSDictionary)?["mood"] as? AIResponseParameter!)
-
-
-// DEMO:
-//var copyMessage = self.messages.last?.copy()
-//
-//if (copyMessage == nil) {
-//    copyMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: "First received!")
-//}
-//var newMessage:JSQMessage!
-//var newMediaData:JSQMessageMediaData!
-//var newMediaAttachmentCopy:AnyObject?
-//
-//if (copyMessage! as AnyObject).isMediaMessage() {
-//    /**
-//     *  Last message was a media message
-//     */
-//    let copyMediaData = (copyMessage! as AnyObject).media
-//
-//    switch copyMediaData {
-//    case is JSQPhotoMediaItem:
-//        let photoItemCopy = (copyMediaData as! JSQPhotoMediaItem).copy() as! JSQPhotoMediaItem
-//        photoItemCopy.appliesMediaViewMaskAsOutgoing = false
-//
-//        newMediaAttachmentCopy = UIImage(cgImage: photoItemCopy.image!.cgImage!)
-//
-//        /**
-//         *  Set image to nil to simulate "downloading" the image
-//         *  and show the placeholder view5017
-//         */
-//        photoItemCopy.image = nil;
-//
-//        newMediaData = photoItemCopy
-//    case is JSQLocationMediaItem:
-//        let locationItemCopy = (copyMediaData as! JSQLocationMediaItem).copy() as! JSQLocationMediaItem
-//        locationItemCopy.appliesMediaViewMaskAsOutgoing = false
-//        newMediaAttachmentCopy = locationItemCopy.location!.copy() as AnyObject?
-//
-//        /**
-//         *  Set location to nil to simulate "downloading" the location data
-//         */
-//        locationItemCopy.location = nil;
-//
-//        newMediaData = locationItemCopy;
-//    case is JSQVideoMediaItem:
-//        let videoItemCopy = (copyMediaData as! JSQVideoMediaItem).copy() as! JSQVideoMediaItem
-//        videoItemCopy.appliesMediaViewMaskAsOutgoing = false
-//        newMediaAttachmentCopy = (videoItemCopy.fileURL! as NSURL).copy() as AnyObject?
-//
-//        /**
-//         *  Reset video item to simulate "downloading" the video
-//         */
-//        videoItemCopy.fileURL = nil;
-//        videoItemCopy.isReadyToPlay = false;
-//
-//        newMediaData = videoItemCopy;
-//    case is JSQAudioMediaItem:
-//        let audioItemCopy = (copyMediaData as! JSQAudioMediaItem).copy() as! JSQAudioMediaItem
-//        audioItemCopy.appliesMediaViewMaskAsOutgoing = false
-//        newMediaAttachmentCopy = (audioItemCopy.audioData! as NSData).copy() as AnyObject?
-//
-//        /**
-//         *  Reset audio item to simulate "downloading" the audio
-//         */
-//        audioItemCopy.audioData = nil;
-//
-//        newMediaData = audioItemCopy;
-//    default:
-//        assertionFailure("Error: This Media type was not recognised")
-//    }
-//
-//    newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), media: newMediaData)
-//}
-//else {
-//    /**
-//     *  Last message was a text message
-//     */
-//
-//    newMessage = JSQMessage(senderId: AvatarIdJobs, displayName: getName(User.Jobs), text: (copyMessage! as AnyObject).text)
-//}
-
 
 
