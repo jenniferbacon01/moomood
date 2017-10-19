@@ -12,13 +12,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Date                            Rating               Reason"
+        return "Date                    Rating                 Reason"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         loadData()
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = String(describing: moods[indexPath.row].date + "                        " + String(describing:moods[indexPath.row].rating) + "/5" + "                    " + String(describing:moods[indexPath.row].cause.capitalized))
+        cell.textLabel?.text = String(describing: moods[indexPath.row].date + "                     " + String(describing:moods[indexPath.row].rating) + "/5" + "                      " + String(describing:moods[indexPath.row].cause.capitalized))
         cell.textLabel?.font = UIFont(name: "Avenir Next Ultra Light", size: 17)
         cell.textLabel?.textColor = UIColor.purple
         return cell

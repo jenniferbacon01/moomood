@@ -83,7 +83,7 @@ class ChatbotViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date) {
         print("Date : \(date)")
-        self.saveMediaMessage(senderDisplayName, senderID: senderId, senderMessage: text, senderMedia:nil)
+        self.saveMediaMessage(user2.name, senderID: senderId, senderMessage: text, senderMedia:nil)
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text!)
         messages.append(message!)
         handleSendMessageToBot(text)
@@ -208,7 +208,7 @@ class ChatbotViewController: JSQMessagesViewController {
 
     func handleGoogleCustomSearchWith(_ reason: String){
         let newReason = reason.replacingOccurrences(of: " ", with: "%20", options: .regularExpression, range: nil)
-        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=funny%20\(newReason)%20meme&searchType=image"
+        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=weird%20funny%20\(newReason)%20meme&searchType=image"
         let targetURL = URL(string: urlString)
         
         performGetRequest(targetURL: targetURL!) { (data, HTTPStatusCode, error) in
