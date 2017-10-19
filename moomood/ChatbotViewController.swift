@@ -12,7 +12,7 @@ class ChatbotViewController: JSQMessagesViewController {
     var photoURL: String!
     var messages = [JSQMessage]()
     var user1 = ChatbotUser(id: "1", name: (PFUser.current()?.username!)!.capitalized)
-    var user2 = ChatbotUser(id: "2", name: "Moomoo")
+    var user2 = ChatbotUser(id: "2", name: "MoomooBot")
     var currentUser: ChatbotUser {
         return user1
     }
@@ -67,6 +67,10 @@ class ChatbotViewController: JSQMessagesViewController {
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
         self.queryAllMessagesFromRealm()
+        let botMsg = "Hi \(user1.name), I am your friend Moomood!"
+        let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
+        messages.append(botMessage!)
+        finishSendingMessage()
     }
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -171,7 +175,7 @@ class ChatbotViewController: JSQMessagesViewController {
                 
                 let unformattedDate = Date()
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat="yyyy-MM-dd"
+                dateFormatter.dateFormat="MMM dd"
                 let formattedDate = dateFormatter.string(from: unformattedDate)
                 if newDate! == "today" {
                     newDate = formattedDate
@@ -203,7 +207,8 @@ class ChatbotViewController: JSQMessagesViewController {
     }
 
     func handleGoogleCustomSearchWith(_ reason: String){
-        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=weird%20funny%20\(reason)%20meme&searchType=image"
+        let newReason = reason.replacingOccurrences(of: " ", with: "%20", options: .regularExpression, range: nil)
+        let urlString: String = "https://www.googleapis.com/customsearch/v1?key=\(googleApiKey)&cx=\(customSearchEngineID)&q=funny%20\(newReason)%20meme&searchType=image"
         let targetURL = URL(string: urlString)
         
         performGetRequest(targetURL: targetURL!) { (data, HTTPStatusCode, error) in
