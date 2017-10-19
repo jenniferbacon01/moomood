@@ -11,7 +11,7 @@ class ChatbotViewController: JSQMessagesViewController {
     var selectedImage: UIImage?
     var photoURL: String!
     var messages = [JSQMessage]()
-    var user1 = ChatbotUser(id: "1", name: (PFUser.current()?.username!)!)
+    var user1 = ChatbotUser(id: "1", name: (PFUser.current()?.username!)!.capitalized)
     var user2 = ChatbotUser(id: "2", name: "Moomoo")
     var currentUser: ChatbotUser {
         return user1
