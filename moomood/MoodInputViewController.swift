@@ -1,22 +1,6 @@
 import UIKit
 import RealmSwift
 
-extension UIView {
-    
-    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        
-        layer.insertSublayer(gradientLayer, at: 0)
-        
-    }
-}
-
-
 class MoodInputViewController: UIViewController, UITextFieldDelegate {
     
     var moodInputViewDisplay: MoodInputViewDisplay = MoodInputViewDisplay()
@@ -29,9 +13,7 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
-        
         return true
     }
     
@@ -41,18 +23,14 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var button5: UIButton!
     
-//    var numberButtons = [button1, button2, button3, button4, button5]
-    
     @IBAction func button1(_ sender: Any) {
         number = 1
         buttonMethod(number: number!)
     }
-    
     @IBAction func button2(_ sender: Any) {
         number = 2
         buttonMethod(number: number!)
     }
-    
     @IBAction func button3(_ sender: UIButton) {
         number = 3
         buttonMethod(number: number!)
@@ -71,33 +49,24 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         moodInputViewDisplay.hideButtons(buttons: [button1, button2, button3, button4, button5])
         moodInputViewDisplay.showButtons(buttons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
     }
-    
-    
-    
     @IBAction func workButton(_ sender: Any) {
         causeButtonMethod(cause: "Work")
     }
-    
     @IBAction func familyButton(_ sender: Any) {
         causeButtonMethod(cause: "Family")
     }
     @IBAction func partnerButton(_ sender: Any) {
         causeButtonMethod(cause: "Partner")
     }
-    
     @IBAction func healthButton(_ sender: Any) {
         causeButtonMethod(cause: "Health")
     }
-    
     @IBAction func homeButton(_ sender: Any) {
         causeButtonMethod(cause: "Home")
     }
-    
     @IBAction func financesButton(_ sender: Any) {
         causeButtonMethod(cause: "Finances")
-        
     }
-    
     @IBAction func weatherButton(_ sender: Any) {
         causeButtonMethod(cause: "Weather")
     }
@@ -116,20 +85,13 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "goToChat", sender: nil)
     }
     
-    
-    
-    
-    // define a new function to save data to Realm
     func addMood(_ date: String, rating: Int, cause: String, moodDescription: String, others: String) {
-        // class Message
         let mood = Mood()
         mood.date = date
         mood.rating = rating
         mood.cause = cause
         mood.moodDescription = moodDescription
         mood.others = others
-        
-        // write to Realm
         let realm = try! Realm()
         try! realm.write {
             realm.add(mood)
@@ -152,26 +114,15 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
         moodInputViewDisplay.hideButtons(buttons: [workButton,familyButton, partnerButton, healthButton, homeButton, financesButton, weatherButton, otherButton, preferNotToSayButton])
         moodInputViewDisplay.showButtons(buttons: [button1, button2, button3, button4, button5])
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         moodInputViewDisplay.formatButton(button: button1, colorOne: UIColor.black, colorTwo: UIColor.purple)
-        
         moodInputViewDisplay.formatButton(button: button2, colorOne: UIColor.darkGray, colorTwo: UIColor.purple)
-        
         moodInputViewDisplay.formatButton(button: button3, colorOne: UIColor.gray, colorTwo: UIColor.purple)
-        
         moodInputViewDisplay.formatButton(button: button4, colorOne: UIColor.lightGray, colorTwo: UIColor.purple)
-        
         moodInputViewDisplay.formatButton(button: button5, colorOne: UIColor.white, colorTwo: UIColor.purple)
-        
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    
 }
