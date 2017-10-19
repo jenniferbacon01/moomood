@@ -86,18 +86,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        if PFUser.current() != nil {
+//            self.performSegue(withIdentifier: "updateSegue", sender: nil)
+//        }
+//    }
     
-    func DoLogin(_ usr:String, _ psw:String) {
-        
-    }
     
-    
-    
-    
-    func startSession(userId: String){
-        UserDefaults.standard.set(userId, forKey:"userId");
-        UserDefaults.standard.synchronize();
-    }
+//    
+//    func startSession(userId: String){
+//        UserDefaults.standard.set(userId, forKey:"userId");
+//        UserDefaults.standard.synchronize();
+//    }
 
 
 }

@@ -2,11 +2,8 @@ import UIKit
 import RealmSwift
 import JSQMessagesViewController
 import ApiAI
+import Parse
 
-struct User {
-    let id: String
-    let name: String
-}
 
 class ChatbotViewController: JSQMessagesViewController {
     let googleApiKey = "AIzaSyBATKEWEvE2Uk95dofrHHht8yu9_v5Pgd8"
@@ -14,9 +11,9 @@ class ChatbotViewController: JSQMessagesViewController {
     var selectedImage: UIImage?
     var photoURL: String!
     var messages = [JSQMessage]()
-    var user1 = User(id: "1", name: "You")
-    var user2 = User(id: "2", name: "Moomoo")
-    var currentUser: User {
+    var user1 = ChatbotUser(id: "1", name: (PFUser.current()?.username!)!)
+    var user2 = ChatbotUser(id: "2", name: "Moomoo")
+    var currentUser: ChatbotUser {
         return user1
     }
     
