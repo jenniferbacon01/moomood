@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var _username: UITextField!
     @IBOutlet var _password: UITextField!
@@ -25,6 +25,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
+        self._username.delegate = self
+        self._password.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func switchLoginSignUpButtonTapped(_ sender: Any) {

@@ -856,6 +856,7 @@
         <image name="HeartEmpty" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Dvq-Cv-ATs"/>
         <segue reference="FJW-Fu-nG7"/>
         <segue reference="EjJ-jA-AnB"/>
         <segue reference="c7l-aQ-AlU"/>
