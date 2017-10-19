@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  moomood
-//
-//  Created by USMAC on 17/10/2017.
-//  Copyright © 2017 Jennifer Bacon. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 import Parse
