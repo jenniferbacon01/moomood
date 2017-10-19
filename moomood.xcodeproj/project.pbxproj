@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1ECBDE60758E06FC04D11AB0 /* Pods_moomoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D6E7C3106318C9BDAA5084 /* Pods_moomoodUITests.framework */; };
+		4677B6B31F961DAD00B43B8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677B6B21F961DAD00B43B8B /* User.swift */; };
+		4677B6B71F96418900B43B8B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677B6B61F96418800B43B8B /* LoginViewController.swift */; };
 		C69F95FB1028B7E1E3647C16 /* Pods_moomood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58C8543E7BC31DDC830877D /* Pods_moomood.framework */; };
 		D9374CC61F93C92100FA0481 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9374CC51F93C92000FA0481 /* Mood.swift */; };
 		D979BE191F8E70F6002A4AC5 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979BE181F8E70F6002A4AC5 /* ChartViewController.swift */; };
@@ -15,7 +17,7 @@
 		D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */; };
 		D9D8945C1F96121200ED5A54 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D8945B1F96121200ED5A54 /* Message.swift */; };
 		E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */; };
-		E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */; };
+		E6C6C9CA1F8E211400BD5531 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9C91F8E211400BD5531 /* JournalViewController.swift */; };
 		E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */; };
 		E6C6C9CF1F8E211400BD5531 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C6C9CD1F8E211400BD5531 /* Main.storyboard */; };
 		E6C6C9D11F8E211400BD5531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6C6C9D01F8E211400BD5531 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		428B17691EC1C4B16383249C /* Pods-moomood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomood/Pods-moomood.debug.xcconfig"; sourceTree = "<group>"; };
 		44F7BB49D60B1091F19F1A64 /* Pods-moomoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodTests/Pods-moomoodTests.release.xcconfig"; sourceTree = "<group>"; };
 		451735FC10E6AF2F295927B5 /* Pods-moomoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodUITests/Pods-moomoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4677B6B21F961DAD00B43B8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4677B6B61F96418800B43B8B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8B325570D2310684A0349AF3 /* Pods-moomood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomood.release.xcconfig"; path = "Pods/Target Support Files/Pods-moomood/Pods-moomood.release.xcconfig"; sourceTree = "<group>"; };
 		AE7ADD9165F73CD3D7A420F4 /* Pods-moomoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moomoodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-moomoodTests/Pods-moomoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0D6E7C3106318C9BDAA5084 /* Pods_moomoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +63,7 @@
 		DED0BC4C07FE369F9AC2EF0A /* Pods_moomoodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moomoodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C41F8E211400BD5531 /* moomood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moomood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		E6C6C9C91F8E211400BD5531 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E6C6C9CE1F8E211400BD5531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6C6C9D01F8E211400BD5531 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4677B6B11F961D6900B43B8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4677B6B21F961DAD00B43B8B /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		650EF5866A807F70DAEAFF9B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,13 +161,15 @@
 		E6C6C9C61F8E211400BD5531 /* moomood */ = {
 			isa = PBXGroup;
 			children = (
+				4677B6B11F961D6900B43B8B /* Model */,
 				E6C6C9C71F8E211400BD5531 /* AppDelegate.swift */,
-				E6C6C9C91F8E211400BD5531 /* FirstViewController.swift */,
+				E6C6C9C91F8E211400BD5531 /* JournalViewController.swift */,
 				E6C6C9CB1F8E211400BD5531 /* SecondViewController.swift */,
 				E6C6C9CD1F8E211400BD5531 /* Main.storyboard */,
 				D9D894591F9525EB00ED5A54 /* ShowMediaViewController.swift */,
 				D979BE1A1F8FFBBA002A4AC5 /* ChatbotViewController.swift */,
 				D9D8945B1F96121200ED5A54 /* Message.swift */,
+				4677B6B61F96418800B43B8B /* LoginViewController.swift */,
 				D9374CC51F93C92000FA0481 /* Mood.swift */,
 				E6C6C9D01F8E211400BD5531 /* Assets.xcassets */,
 				E6C6C9D21F8E211400BD5531 /* LaunchScreen.storyboard */,
@@ -444,18 +458,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-moomood/Pods-moomood-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ApiAI/ApiAI.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ApiAI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -491,8 +509,10 @@
 				E6C6C9CC1F8E211400BD5531 /* SecondViewController.swift in Sources */,
 				E6C6C9C81F8E211400BD5531 /* AppDelegate.swift in Sources */,
 				D9D8945A1F9525EB00ED5A54 /* ShowMediaViewController.swift in Sources */,
-				E6C6C9CA1F8E211400BD5531 /* FirstViewController.swift in Sources */,
+				4677B6B31F961DAD00B43B8B /* User.swift in Sources */,
+				E6C6C9CA1F8E211400BD5531 /* JournalViewController.swift in Sources */,
 				D9374CC61F93C92100FA0481 /* Mood.swift in Sources */,
+				4677B6B71F96418900B43B8B /* LoginViewController.swift in Sources */,
 				D979BE191F8E70F6002A4AC5 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

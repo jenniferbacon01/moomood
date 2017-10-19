@@ -1,19 +1,10 @@
-//
-//  FirstViewController.swift
-//  moomood
-//
-//  Created by Jennifer Bacon on 11/10/2017.
-//  Copyright © 2017 Jennifer Bacon. All rights reserved.
-//
 
 import UIKit
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var moods: Results<Mood>!
-//    var moodsWithDesc: [MoodDB] = []
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         loadData()
@@ -31,40 +22,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let realm = try! Realm()
         moods = realm.objects(Mood.self)
     }
-    
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.delete {
-//
-//            moods.remove(at: indexPath.row)
-//
-//            table.reloadData()
-//
-//            NSKeyedArchiver.archiveRootObject(moods, toFile: Mood.ArchiveURL.path)
-//
-//        }
-//    }
-    
-    
-    
+
     
     @IBOutlet weak var table: UITableView!
     
-    
-    
     override func viewDidAppear(_ animated: Bool) {
-        
         print(moods)
-        
         table.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,10 +43,4 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func test(_ sender: Any) {
         print(moods)
     }
-    
-
-    
 }
-
-
-

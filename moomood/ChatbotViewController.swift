@@ -11,17 +11,17 @@ import RealmSwift
 import JSQMessagesViewController
 import ApiAI
 
-struct User {
-    let id: String
-    let name: String
-}
+//struct User {
+//    let id: String
+//    let name: String
+//}
 
 class ChatbotViewController: JSQMessagesViewController {
     
     // setting variables
     var messages = [JSQMessage]()
-    var user1 = User(id: "1", name: "You")
-    var user2 = User(id: "2", name: "moomooBot")
+    var user1 = User(id: "1", name: "You", password: "1234")
+    var user2 = User(id: "2", name: "moomooBot", password: "1234")
     var currentUser: User {
         return user1
     }
