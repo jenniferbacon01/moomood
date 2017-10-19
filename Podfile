@@ -10,6 +10,7 @@ target 'moomood' do
   pod 'ApiAI'
   pod 'JSQMessagesViewController'
   pod 'RealmSwift'
+  pod ‘Parse’ 
 
   target 'moomoodTests' do
     inherit! :search_paths
