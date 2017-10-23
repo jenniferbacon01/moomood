@@ -5,7 +5,7 @@
 -----
 Welcome 
 -----
-This iOS application allows users to monitor and record their mood. They can either rate their mood from 1 to 5 in the Mood tab or chat to our MoomooBot to describe how they are feeling and why. MoomooBot understands over 300 feelings and 500 reasons.  It will provide appropriate responses and advice depending on whether the mood is a positive or a negative feeling - it will even send you a funny meme if you feel like it! The user can track their moods over time and see graphical depictions of their data on our Charts tab. They can also view a diary of their moods and see an average on our Journal tab.
+This iOS application allows users to monitor and record their mood. They can either rate their mood from 1 to 5 in the Mood tab or chat to our MoomooBot to describe how they are feeling and why. MoomooBot understands over 300 feelings and 5000 reasons.  It will provide appropriate responses and advice depending on whether the mood is a positive or a negative feeling - it will even send you a funny meme if you feel like it! The user can track their moods over time and see graphical depictions of their data on our Charts tab. They can also view a diary of their moods and see an average on our Journal tab.
 
 Technologies
 -----
