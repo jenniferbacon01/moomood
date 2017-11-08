@@ -79,7 +79,7 @@ class MoodInputViewController: UIViewController, UITextFieldDelegate {
     func causeButtonMethod(cause: String) {
         let unformattedDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat="yyyy-MM-dd"
+        dateFormatter.dateFormat="MMM dd"
         let formattedDate = dateFormatter.string(from: unformattedDate)
         addMood(formattedDate, rating: number!, cause: cause, moodDescription: "", others: "")
         performSegue(withIdentifier: "goToChat", sender: nil)

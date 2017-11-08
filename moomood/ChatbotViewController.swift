@@ -11,7 +11,7 @@ class ChatbotViewController: JSQMessagesViewController {
     var selectedImage: UIImage?
     var photoURL: String!
     var messages = [JSQMessage]()
-    var user1 = ChatbotUser(id: "1", name: (PFUser.current()?.username!)!.capitalized)
+    var user1 = ChatbotUser(id: "1", name: "Elizabeth")
     var user2 = ChatbotUser(id: "2", name: "Moomoo")
     var currentUser: ChatbotUser {
         return user1
@@ -67,6 +67,10 @@ class ChatbotViewController: JSQMessagesViewController {
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
         self.queryAllMessagesFromRealm()
+        let botMsg = "Hi \(user1.name), I am your friend Moomood!"
+        let botMessage = JSQMessage(senderId: user2.id, displayName: user2.name, text: botMsg)
+        messages.append(botMessage!)
+        finishSendingMessage()
     }
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -171,7 +175,7 @@ class ChatbotViewController: JSQMessagesViewController {
                 
                 let unformattedDate = Date()
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat="yyyy-MM-dd"
+                dateFormatter.dateFormat="MMM dd"
                 let formattedDate = dateFormatter.string(from: unformattedDate)
                 if newDate! == "today" {
                     newDate = formattedDate
